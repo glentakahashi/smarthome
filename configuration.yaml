@@ -41,7 +41,7 @@ http:
   base_url: littlefoot.duckdns.org:8123
   ssl_certificate: /etc/letsencrypt/live/littlefoot.duckdns.org/fullchain.pem
   ssl_key: /etc/letsencrypt/live/littlefoot.duckdns.org/privkey.pem
-  use_x_forwarded_for: true
+  # use_x_forwarded_for: true
   trusted_networks:
     - 192.168.1.1
 

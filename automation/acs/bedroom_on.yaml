@@ -1,65 +1,64 @@
-alias: Turn on Bedroom AC if it's too hot
+alias: Turn on Bedroom AC
 initial_state: true
 trigger:
   - platform: state
     entity_id:
       - sensor.0x00158d00022cc96b_temperature
       - sensor.0x00158d00022c7d5b_temperature
-      - binary_sensor.0x00158d00022bd487
-      - binary_sensor.0x00158d000236fa41
-      - binary_sensor.0x00158d000237011b
-      - binary_sensor.0x00158d000232dc09
-      - binary_sensor.0x00158d0002329dac
+      - group.living_room_windows
+      - group.bedroom_windows
       - binary_sensor.0x00158d000237c71b
 condition:
-  condition: or
+  condition: and
   conditions:
-    # nobody home
     - condition: and
       conditions:
-        - condition: numeric_state
-          entity_id: sensor.0x00158d00022c7d5b_temperature
-          above: 85
         - condition: state
-          entity_id: group.phones
-          state: 'not_home'
-        - condition: and
+          entity_id: group.bedroom_windows
+          state: 'off'
+        - condition: or
           conditions:
             - condition: state
-              entity_id: group.bedroom_windows
+              entity_id: group.living_room_windows
               state: 'off'
-            - condition: or
-              conditions:
-                - condition: state
-                  entity_id: group.living_room_windows
-                  state: 'off'
-                - condition: state
-                  entity_id: binary_sensor.0x00158d000237c71b
-                  state: 'off'
-    # home and not sleeping
-    - condition: and
+            - condition: state
+              entity_id: binary_sensor.0x00158d000237c71b
+              state: 'off'
+    - condition: or
       conditions:
-        - condition: numeric_state
-          entity_id: sensor.0x00158d00022c7d5b_temperature
-          above: 78
-        - condition: state
-          entity_id: group.phone
-          state: 'home'
-        - condition: time
-          after: '8:00:00'
-          before: '23:00:00'
-    # home and night time
-    - condition: and
-      conditions:
-        - condition: numeric_state
-          entity_id: sensor.0x00158d00022c7d5b_temperature
-          above: 77
-        - condition: state
-          entity_id: group.phones
-          state: 'home'
-        - condition: time
-          after: '23:00:00'
-          before: '8:00:00'
+        # nobody home
+        - condition: and
+          conditions:
+            - condition: numeric_state
+              entity_id: sensor.0x00158d00022c7d5b_temperature
+              above: 85
+            - condition: state
+              entity_id: group.phones
+              state: 'not_home'
+        # home and not sleeping
+        - condition: and
+          conditions:
+            - condition: numeric_state
+              entity_id: sensor.0x00158d00022c7d5b_temperature
+              above: 78
+            - condition: state
+              entity_id: group.phones
+              state: 'home'
+            - condition: time
+              after: '8:00:00'
+              before: '23:00:00'
+        # home and night time
+        - condition: and
+          conditions:
+            - condition: numeric_state
+              entity_id: sensor.0x00158d00022c7d5b_temperature
+              above: 77
+            - condition: state
+              entity_id: group.phones
+              state: 'home'
+            - condition: time
+              after: '23:00:00'
+              before: '8:00:00'
 action:
   service: switch.turn_on
   data:

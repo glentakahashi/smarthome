@@ -45,7 +45,12 @@ Office Light Automations:
   - automation.light_2
   - automation.light_3
 Presence Automations:
-  - automation.notify_if_door_opens_and_nobody_home
+  - automation.notify_if_front_door_opens_and_nobody_home
   - automation.turn_off_lights_when_nobody_is_home
   - automation.turn_off_wyze_when_someone_is_home
   - automation.turn_on_wyze_if_nobody_is_home
+AC Automations:
+  - automation.turn_off_bedroom_ac
+  - automation.turn_off_dining_room_ac
+  - automation.turn_on_bedroom_ac
+  - automation.turn_on_dining_room_ac
