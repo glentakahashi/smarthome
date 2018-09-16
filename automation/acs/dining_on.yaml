@@ -19,7 +19,7 @@ condition:
       conditions:
         - condition: numeric_state
           entity_id: sensor.0x00158d00022cc96b_temperature
-          above: 85 
+          above: 85
         - condition: state
           entity_id: group.phones
           state: 'not_home'
@@ -27,15 +27,15 @@ condition:
           conditions:
             - condition: state
               entity_id: group.living_room_windows
-              state: off
+              state: 'off'
             - condition: or
               conditions:
                 - condition: state
                   entity_id: group.bedroom_windows
-                  state: off
+                  state: 'off'
                 - condition: state
                   entity_id: binary_sensor.0x00158d000237c71b
-                  state: off
+                  state: 'off'
     # home and not sleeping
     - condition: and
       conditions:
