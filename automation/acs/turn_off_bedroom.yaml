@@ -1,0 +1,73 @@
+alias: Turn off Bedroom AC if it's too cold
+initial_state: true
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.0x00158d00022cc96b_temperature
+      - sensor.0x00158d00022c7d5b_temperature
+      - binary_sensor.0x00158d00022bd487
+      - binary_sensor.0x00158d000236fa41
+      - binary_sensor.0x00158d000237011b
+      - binary_sensor.0x00158d000232dc09
+      - binary_sensor.0x00158d0002329dac
+      - binary_sensor.0x00158d000237c71b
+condition:
+  condition: or
+  conditions:
+    # open doors/windows
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: group.bedroom_windows
+          state: on
+          for:
+            seconds: 30
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: group.living_room_windows
+              state: on
+              for:
+                seconds: 30
+            - condition: state
+              entity_id: binary_sensor.0x00158d000237c71b
+              state: on
+              for:
+                seconds: 30
+    # nobody home
+    - condition: and
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.0x00158d00022cc96b_temperature
+          below: 83 
+        - condition: state
+          entity_id: group.phones
+          state: 'not_home'
+    # home and not sleeping
+    - condition: and
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.0x00158d00022cc96b_temperature
+          below: 77
+        - condition: state
+          entity_id: group.phone
+          state: 'home'
+        - condition: time
+          after: '8:00:00'
+          before: '23:00:00'
+    # home and night time
+    - condition: and
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.0x00158d00022cc96b_temperature
+          below: 76
+        - condition: state
+          entity_id: group.phones
+          state: 'home'
+        - condition: time
+          after: '23:00:00'
+          before: '8:00:00'
+action:
+  service: switch.turn_off
+  data:
+    entity_id: switch.50684814dc4f2233de45
