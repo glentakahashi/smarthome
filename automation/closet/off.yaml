@@ -1,0 +1,10 @@
+alias: Closet activity off
+initial_state: true
+trigger:
+  platform: state
+  entity_id: binary_sensor.0x00158d000236a471_occupancy
+  to: 'off'
+action:
+  service: light.turn_off
+  data:
+    entity_id: group.closet_lights

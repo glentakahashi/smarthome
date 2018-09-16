@@ -1,0 +1,11 @@
+alias: Turn off wyze when someone is home
+initial_state: true
+trigger:
+  platform: state
+  entity_id: group.phones
+  from: 'not_home'
+  to: 'home'
+action:
+  service: switch.turn_off
+  data:
+    entity_id: switch.8281608184f3eb6806f0

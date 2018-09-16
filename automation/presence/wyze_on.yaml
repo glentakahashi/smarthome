@@ -1,0 +1,11 @@
+alias: Turn on wyze if nobody is home
+initial_state: true
+trigger:
+  platform: state
+  entity_id: group.phones
+  from: 'home'
+  to: 'not_home'
+action:
+  service: switch.turn_on
+  data:
+    entity_id: switch.8281608184f3eb6806f0

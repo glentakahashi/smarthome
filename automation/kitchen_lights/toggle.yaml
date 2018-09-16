@@ -1,0 +1,12 @@
+alias: Toggle Kitchen Lights
+initial_state: true
+trigger:
+  platform: mqtt
+  topic: "zigbee2mqtt/0x00158d0001e88eae"
+condition:
+  condition: template
+  value_template: "{{ 'single' == trigger.payload_json.click }}"
+action:
+  service: light.toggle
+  data:
+    entity_id: group.kitchen_lights

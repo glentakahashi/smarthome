@@ -1,0 +1,15 @@
+alias: Notify if front door opens and nobody home
+initial_state: true
+trigger:
+  platform: state
+  entity_id: binary_sensor.0x00158d00022eff01
+  from: 'off'
+  to: 'on'
+condition:
+  condition: state
+  entity_id: group.phones
+  state: 'not_home'
+action:
+  service: notify.notify
+  data:
+    message: 'Front door opened'
