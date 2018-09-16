@@ -1,0 +1,350 @@
+media_player.40_tcl_roku_tv:
+  config_entry_id:
+  name:
+  platform: roku
+  unique_id: YK0073674876
+zwave.sigma_designs_uzb_zwave_usb_adapter:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-1
+sensor.lumi_lumiweather_022c7d5b_1_temperature:
+  config_entry_id:
+  name: Bedroom Temperature
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:2c:7d:5b_1_temperature
+sensor.lumi_lumiweather_022c7d5b_1_pressure:
+  config_entry_id:
+  name: Bedroom Pressure
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:2c:7d:5b_1_pressure
+sensor.lumi_lumiweather_022c7d5b_1_humidity:
+  config_entry_id:
+  name: Bedroom Humidity
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:2c:7d:5b_1_humidity
+sensor.lumi_lumiweather_022c7d5b_1:
+  config_entry_id:
+  name:
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:2c:7d:5b_1
+sensor.lumi_lumiweather_022cc96b_1_temperature:
+  config_entry_id:
+  name: Dining Room Temperature
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:2c:c9:6b_1_temperature
+sensor.lumi_lumiweather_022cc96b_1_pressure:
+  config_entry_id:
+  name: Dining Room Pressure
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:2c:c9:6b_1_pressure
+sensor.lumi_lumiweather_022cc96b_1_humidity:
+  config_entry_id:
+  name: Dining Room Humidity
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:2c:c9:6b_1_humidity
+sensor.lumi_lumiweather_022cc96b_1:
+  config_entry_id:
+  name:
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:2c:c9:6b_1
+light.sengled_e11g13_030ef600_1:
+  config_entry_id:
+  name: Office Ceiling Light 1
+  platform: zha_new
+  unique_id: b0:ce:18:14:03:0e:f6:00_1
+light.sengled_e11g13_030dedf3_1:
+  config_entry_id:
+  name: Office Ceiling Light 2
+  platform: zha_new
+  unique_id: b0:ce:18:14:03:0d:ed:f3_1
+media_player.star_leaf:
+  config_entry_id: 1dcf5f2cdc15484fbc2a38ba0341236e
+  name:
+  platform: cast
+  unique_id: ce9d4b66-f5f4-ab2f-8f47-2ecd45b853b9
+media_player.office_speaker:
+  config_entry_id: 1dcf5f2cdc15484fbc2a38ba0341236e
+  name:
+  platform: cast
+  unique_id: 929b8c58-71e0-f1d6-8f73-fae7f5c787df
+media_player.dining_room_speaker:
+  config_entry_id: 1dcf5f2cdc15484fbc2a38ba0341236e
+  name:
+  platform: cast
+  unique_id: 61ca54f7-b96d-fbad-ed22-f3863dbf3e00
+media_player.home_group:
+  config_entry_id: 1dcf5f2cdc15484fbc2a38ba0341236e
+  name:
+  platform: cast
+  unique_id: 92d975d5-164d-45ef-bd9a-297c38f0de32
+media_player.bedroom_speaker:
+  config_entry_id: 1dcf5f2cdc15484fbc2a38ba0341236e
+  name:
+  platform: cast
+  unique_id: 743bdd8f-ca4a-3160-f281-26db3f9077d8
+switch.50684814bcddc209a824:
+  config_entry_id:
+  name: Living Room AC
+  platform: tuya
+  unique_id: tuya.50684814bcddc209a824
+switch.82816081b4e62d41f660:
+  config_entry_id:
+  name:
+  platform: tuya
+  unique_id: tuya.82816081b4e62d41f660
+switch.50684814dc4f2233de45:
+  config_entry_id:
+  name:
+  platform: tuya
+  unique_id: tuya.50684814dc4f2233de45
+light.sengled_e11g13_030dcd16_1:
+  config_entry_id:
+  name: Bedroom Ceiling Light 1
+  platform: zha_new
+  unique_id: b0:ce:18:14:03:0d:cd:16_1
+light.sengled_e11g13_030dad86_1:
+  config_entry_id:
+  name: Bedroom Ceiling Light 2
+  platform: zha_new
+  unique_id: b0:ce:18:14:03:0d:ad:86_1
+switch.8281608184f3eb6806f0:
+  config_entry_id:
+  name:
+  platform: tuya
+  unique_id: tuya.8281608184f3eb6806f0
+switch.82816081b4e62d41fdc9:
+  config_entry_id:
+  name: Living Room Light
+  platform: tuya
+  unique_id: tuya.82816081b4e62d41fdc9
+switch.8281608184f3eb6806c4:
+  config_entry_id:
+  name:
+  platform: tuya
+  unique_id: tuya.8281608184f3eb6806c4
+sensor.spectre_battery_level:
+  config_entry_id:
+  name:
+  platform: ios
+  unique_id: level_spectre
+sensor.spectre_battery_state:
+  config_entry_id:
+  name:
+  platform: ios
+  unique_id: state_spectre
+sensor.maries_iphone_battery_state:
+  config_entry_id:
+  name:
+  platform: ios
+  unique_id: state_maries_iphone
+sensor.maries_iphone_battery_level:
+  config_entry_id:
+  name:
+  platform: ios
+  unique_id: level_maries_iphone
+light.sengled_e11g13_0334b0ab_1:
+  config_entry_id:
+  name: Kitchen Light 1
+  platform: zha_new
+  unique_id: b0:ce:18:14:03:34:b0:ab_1
+light.sengled_e11g13_03360228_1:
+  config_entry_id:
+  name: Kitchen Light 2
+  platform: zha_new
+  unique_id: b0:ce:18:14:03:36:02:28_1
+light.sengled_e11g13_03349cfc_1:
+  config_entry_id:
+  name: Kitchen Light 3
+  platform: zha_new
+  unique_id: b0:ce:18:14:03:34:9c:fc_1
+light.sengled_e11g13_03364149_1:
+  config_entry_id:
+  name: Kitchen Light 4
+  platform: zha_new
+  unique_id: b0:ce:18:14:03:36:41:49_1
+media_player.chromecast0856:
+  config_entry_id: 1dcf5f2cdc15484fbc2a38ba0341236e
+  name:
+  platform: cast
+  unique_id: acb01393-f983-abc4-4172-80bde47e27b7
+binary_sensor.lumi_lumisensor_86sw2un_02133460_1:
+  config_entry_id:
+  name:
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:13:34:60_1
+binary_sensor.lumi_lumisensor_86sw2_02133460_1_on_off:
+  config_entry_id:
+  name:
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:13:34:60_1_on_off
+binary_sensor.lumi_lumisensor_86sw2_02133460_2_on_off:
+  config_entry_id:
+  name:
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:13:34:60_2_on_off
+binary_sensor.lumi_lumisensor_86sw2_02133460_3_on_off:
+  config_entry_id:
+  name:
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:13:34:60_3_on_off
+binary_sensor.lumi_lumisensor_magnetaq2_022eff01_1_on_off:
+  config_entry_id:
+  name: Front Door
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:2e:ff:01_1_on_off
+binary_sensor.lumi_lumisensor_magnetaq2_022bd487_1_on_off:
+  config_entry_id:
+  name: Balcony Door
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:2b:d4:87_1_on_off
+sensor.lumi_lumiweather_0245a9be_1_temperature:
+  config_entry_id:
+  name: Closet Temperature
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:45:a9:be_1_temperature
+sensor.lumi_lumiweather_0245a9be_1_pressure:
+  config_entry_id:
+  name: Closet Pressure
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:45:a9:be_1_pressure
+sensor.lumi_lumiweather_0245a9be_1_humidity:
+  config_entry_id:
+  name: Closet Humidity
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:45:a9:be_1_humidity
+sensor.lumi_lumiweather_0245a9be_1:
+  config_entry_id:
+  name:
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:45:a9:be_1
+switch.lumi_lumisensor_switchaq2_01ef8506_1:
+  config_entry_id:
+  name:
+  platform: zha_new
+  unique_id: 00:15:8d:00:01:ef:85:06_1
+binary_sensor.lumi_lumisensor_magnetaq2_0236fa41_1_on_off:
+  config_entry_id:
+  name: Living Room Left Window
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:36:fa:41_1_on_off
+binary_sensor.lumi_lumisensor_magnetaq2_0237011b_1_on_off:
+  config_entry_id:
+  name: Living Room Right Window
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:37:01:1b_1_on_off
+binary_sensor.lumi_lumisensor_magnetaq2_0232dc09_1_on_off:
+  config_entry_id:
+  name: Bedroom Left Window
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:32:dc:09_1_on_off
+binary_sensor.lumi_lumisensor_magnetaq2_02329dac_1_on_off:
+  config_entry_id:
+  name: Bedroom Right Window
+  platform: zha_new
+  unique_id: 00:15:8d:00:02:32:9d:ac_1_on_off
+binary_sensor.0x00158d000236fa41:
+  config_entry_id:
+  name: Living Room Left Window
+  platform: mqtt
+  unique_id: 0x00158d000236fa41_contact_zigbee2mqtt
+sensor.0x00158d00022cc96b_temperature:
+  config_entry_id:
+  name: Dining Room Temperature
+  platform: mqtt
+  unique_id: 0x00158d00022cc96b_temperature_zigbee2mqtt
+sensor.0x00158d00022cc96b_humidity:
+  config_entry_id:
+  name: Dining Room Humidity
+  platform: mqtt
+  unique_id: 0x00158d00022cc96b_humidity_zigbee2mqtt
+sensor.0x00158d00022cc96b_pressure:
+  config_entry_id:
+  name: Dining Room Pressure
+  platform: mqtt
+  unique_id: 0x00158d00022cc96b_pressure_zigbee2mqtt
+sensor.0x00158d000245a9be_temperature:
+  config_entry_id:
+  name: Closet Temperature
+  platform: mqtt
+  unique_id: 0x00158d000245a9be_temperature_zigbee2mqtt
+sensor.0x00158d000245a9be_humidity:
+  config_entry_id:
+  name: Closet Humidity
+  platform: mqtt
+  unique_id: 0x00158d000245a9be_humidity_zigbee2mqtt
+sensor.0x00158d000245a9be_pressure:
+  config_entry_id:
+  name: Closet Pressure
+  platform: mqtt
+  unique_id: 0x00158d000245a9be_pressure_zigbee2mqtt
+binary_sensor.0x00158d000237011b:
+  config_entry_id:
+  name: Living Room Right Window
+  platform: mqtt
+  unique_id: 0x00158d000237011b_contact_zigbee2mqtt
+binary_sensor.0x00124b0014d9d4fa:
+  config_entry_id:
+  name: Router
+  platform: mqtt
+  unique_id: 0x00124b0014d9d4fa_router_zigbee2mqtt
+sensor.0x00158d00022c7d5b_temperature:
+  config_entry_id:
+  name: Bedroom Temperature
+  platform: mqtt
+  unique_id: 0x00158d00022c7d5b_temperature_zigbee2mqtt
+sensor.0x00158d00022c7d5b_humidity:
+  config_entry_id:
+  name: Bedroom Humidity
+  platform: mqtt
+  unique_id: 0x00158d00022c7d5b_humidity_zigbee2mqtt
+sensor.0x00158d00022c7d5b_pressure:
+  config_entry_id:
+  name: Bedroom Pressure
+  platform: mqtt
+  unique_id: 0x00158d00022c7d5b_pressure_zigbee2mqtt
+binary_sensor.0x00158d00022eff01:
+  config_entry_id:
+  name: Front Door
+  platform: mqtt
+  unique_id: 0x00158d00022eff01_contact_zigbee2mqtt
+binary_sensor.0x00158d00022bd487:
+  config_entry_id:
+  name: Balcony Door
+  platform: mqtt
+  unique_id: 0x00158d00022bd487_contact_zigbee2mqtt
+binary_sensor.0x00158d000232dc09:
+  config_entry_id:
+  name: Bedroom Left Window
+  platform: mqtt
+  unique_id: 0x00158d000232dc09_contact_zigbee2mqtt
+binary_sensor.0x00158d0002329dac:
+  config_entry_id:
+  name: Bedroom Right Window
+  platform: mqtt
+  unique_id: 0x00158d0002329dac_contact_zigbee2mqtt
+sensor.0x00158d000278eb90:
+  config_entry_id:
+  name: Cube 1
+  platform: mqtt
+  unique_id: 0x00158d000278eb90_action_zigbee2mqtt
+sensor.0x00158d0001e88eae:
+  config_entry_id:
+  name: Kitchen Button
+  platform: mqtt
+  unique_id: 0x00158d0001e88eae_click_zigbee2mqtt
+binary_sensor.0x00158d000236a471_occupancy:
+  config_entry_id:
+  name: Closet Occupancy
+  platform: mqtt
+  unique_id: 0x00158d000236a471_occupancy_zigbee2mqtt
+sensor.0x00158d000236a471_illuminance:
+  config_entry_id:
+  name: Closet Luminance
+  platform: mqtt
+  unique_id: 0x00158d000236a471_illuminance_zigbee2mqtt
+binary_sensor.0x00158d000237c71b:
+  config_entry_id:
+  name: Bedroom Door
+  platform: mqtt
+  unique_id: 0x00158d000237c71b_contact_zigbee2mqtt

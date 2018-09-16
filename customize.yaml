@@ -1,0 +1,26 @@
+switch.wake_on_lan:
+  friendly_name: Computer
+light.0xb0ce181403360228:
+  friendly_name: Closet Light
+light.0xb0ce1814030dedf3:
+  friendly_name: Office Light 1
+light.0xb0ce1814030ef600:
+  friendly_name: Office Light 2
+light.0xb0ce1814030dad86:
+  friendly_name: Bedroom Light 1
+light.0xb0ce1814030dcd16:
+  friendly_name: Bedroom Light 2
+light.0xb0ce18140316d859:
+  friendly_name: Kitchen Light 1
+light.0xb0ce1814031bbfb6:
+  friendly_name: Kitchen Light 2
+light.0xb0ce1814031c8686:
+  friendly_name: Kitchen Light 3
+light.0xb0ce1814031cdeb3:
+  friendly_name: Kitchen Light 4
+light.0xb0ce181403349cfc:
+  friendly_name: Bathroom Light 1
+light.0xb0ce18140334b0ab:
+  friendly_name: Bathroom Light 2
+light.0xb0ce181403364149:
+  friendly_name: Bathroom Light 3

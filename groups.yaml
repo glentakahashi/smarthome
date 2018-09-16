@@ -1,0 +1,62 @@
+Phones:
+  - device_tracker.spectre
+  - device_tracker.mariesiphone
+Switch Lights:
+  - switch.82816081b4e62d41f660
+  - switch.8281608184f3eb6806c4
+  - switch.82816081b4e62d41fdc9
+ACs:
+  - switch.50684814dc4f2233de45
+  - switch.50684814bcddc209a824
+Kitchen Lights:
+  - light.0xb0ce18140316d859
+  - light.0xb0ce1814031bbfb6
+  - light.0xb0ce1814031c8686
+  - light.0xb0ce1814031cdeb3
+Office Lights:
+  - light.0xb0ce1814030dedf3
+  - light.0xb0ce1814030ef600
+Bathroom Lights:
+  - light.0xb0ce181403349cfc
+  - light.0xb0ce18140334b0ab
+  - light.0xb0ce181403364149
+Bedroom Lights:
+  - light.0xb0ce1814030dad86
+  - light.0xb0ce1814030dcd16
+Living Room Windows:
+  - binary_sensor.0x00158d00022bd487
+  - binary_sensor.0x00158d000236fa41
+  - binary_sensor.0x00158d000237011b
+Bedroom Windows:
+  - binary_sensor.0x00158d000232dc09
+  - binary_sensor.0x00158d0002329dac
+Closet Lights:
+  - light.0xb0ce181403360228
+Kitchen Light Automations:
+  - automation.100_kitchen_lights
+  - automation.1_kitchen_lights
+  - automation.50_kitchen_lights
+  - automation.toggle_kitchen_lights
+Closet Light Automations:
+  - automation.closet_activity
+  - automation.closet_activity_off
+Office Light Automations:
+  - automation.light_1
+  - automation.light_2
+  - automation.light_3
+Presence Automations:
+  - automation.notify_if_door_opens_and_nobody_home
+  - automation.turn_off_lights_when_nobody_is_home
+  - automation.turn_off_wyze_when_someone_is_home
+  - automation.turn_on_wyze_if_nobody_is_home
+AC Automations:
+  - automation.turn_off_bedroom_room_ac_if_it_was_way_too_hot_but_now_its_not
+  - automation.turn_off_bedroom_room_ac_if_its_too_cold
+  - automation.turn_off_dining_room_ac_if_it_was_way_too_hot_but_now_its_not
+  - automation.turn_off_dining_room_ac_if_its_too_cold
+  - automation.turn_off_dining_room_ac_if_its_too_cold_at_night
+  - automation.turn_on_bedroom_room_ac_if_its_too_hot_and_someone_is_home
+  - automation.turn_on_bedroom_room_ac_if_its_way_too_hot
+  - automation.turn_on_dining_room_ac_if_its_too_hot_and_someone_is_home_and_were_not_sleeping
+  - automation.turn_on_dining_room_ac_if_its_too_hot_and_someone_is_home_and_were_sleeping
+  - automation.turn_on_dining_room_ac_if_its_way_too_hot
