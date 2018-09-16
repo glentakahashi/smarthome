@@ -105,44 +105,6 @@
     service: light.toggle
     data:
       entity_id: light.0xb0ce1814030ef600, light.0xb0ce1814030dedf3
-- alias: Turn on Dining Room AC if it's too hot and someone is home and we're not sleeping
-  initial_state: true
-  trigger:
-    platform: template
-    value_template: >
-      {{ states("sensor.0x00158d00022cc96b_temperature") | float > 77 }}
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: group.phones
-        state: 'home'
-      - condition: time
-        after: '8:00:00'
-        before: '23:00:00'
-  action:
-    service: switch.turn_on
-    data:
-      entity_id: switch.50684814bcddc209a824
-- alias: Turn on Dining Room AC if it's too hot and someone is home and we're sleeping
-  initial_state: true
-  trigger:
-    platform: template
-    value_template: >
-      {{ states("sensor.0x00158d00022cc96b_temperature") | float > 79 }}
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: group.phones
-        state: 'home'
-      - condition: time
-        after: '23:00:00'
-        before: '8:00:00'
-  action:
-    service: switch.turn_on
-    data:
-      entity_id: switch.50684814bcddc209a824
 - alias: Turn on Bedroom Room AC if it's too hot and someone is home
   initial_state: true
   trigger:
@@ -157,30 +119,6 @@
     service: switch.turn_on
     data:
       entity_id: switch.50684814dc4f2233de45
-- alias: Turn off Dining Room AC if it's too cold
-  initial_state: true
-  trigger:
-    platform: template
-    value_template: >
-      {{ states("sensor.0x00158d00022cc96b_temperature") | float < 76 }}
-  action:
-    service: switch.turn_off
-    data:
-      entity_id: switch.50684814bcddc209a824
-- alias: Turn off Dining Room AC if it's too cold at night
-  initial_state: true
-  trigger:
-    platform: template
-    value_template: >
-      {{ states("sensor.0x00158d00022cc96b_temperature") | float < 77 }}
-  condition:
-    condition: time
-    after: '23:00:00'
-    before: '8:00:00'
-  action:
-    service: switch.turn_off
-    data:
-      entity_id: switch.50684814bcddc209a824
 - alias: Turn off Bedroom Room AC if it's too cold
   initial_state: true
   trigger:
@@ -191,16 +129,6 @@
     service: switch.turn_off
     data:
       entity_id: switch.50684814dc4f2233de45
-- alias: Turn on Dining Room AC if it's way too hot
-  initial_state: true
-  trigger:
-    platform: template
-    value_template: >
-      {{ states("sensor.0x00158d00022cc96b_temperature") | float > 85 }}
-  action:
-    service: switch.turn_on
-    data:
-      entity_id: switch.50684814bcddc209a824
 - alias: Turn on Bedroom Room AC if it's way too hot
   initial_state: true
   trigger:
@@ -211,20 +139,6 @@
     service: switch.turn_on
     data:
       entity_id: switch.50684814dc4f2233de45
-- alias: Turn off Dining Room AC if it was way too hot but now its not
-  initial_state: true
-  trigger:
-    platform: template
-    value_template: >
-      {{ states("sensor.0x00158d00022cc96b_temperature") | float < 83 }}
-  condition:
-    condition: state
-    entity_id: group.phones
-    state: 'not_home'
-  action:
-    service: switch.turn_off
-    data:
-      entity_id: switch.50684814bcddc209a824
 - alias: Turn off Bedroom Room AC if it was way too hot but now its not
   initial_state: true
   trigger:
