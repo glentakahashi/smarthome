@@ -8,6 +8,7 @@ trigger:
       - group.living_room_windows
       - group.bedroom_windows
       - binary_sensor.0x00158d000237c71b
+      - group.phones
 condition:
   condition: or
   conditions:
