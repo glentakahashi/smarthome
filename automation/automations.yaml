@@ -1,0 +1,290 @@
+- alias: 50% Kitchen Lights
+  initial_state: true
+  trigger:
+    platform: mqtt
+    topic: "zigbee2mqtt/0x00158d0001e88eae"
+  condition:
+    condition: template
+    value_template: "{{ 'double' == trigger.payload_json.click }}"
+  action:
+    service: light.turn_on
+    data:
+      entity_id: group.kitchen_lights
+      brightness: 128
+- alias: 100% Kitchen Lights
+  initial_state: true
+  trigger:
+    platform: mqtt
+    topic: "zigbee2mqtt/0x00158d0001e88eae"
+  condition:
+    condition: template
+    value_template: "{{ 'triple' == trigger.payload_json.click }}"
+  action:
+    service: light.turn_on
+    data:
+      entity_id: group.kitchen_lights
+      brightness: 255
+- alias: 1% Kitchen Lights
+  initial_state: true
+  trigger:
+    platform: mqtt
+    topic: "zigbee2mqtt/0x00158d0001e88eae"
+  condition:
+    condition: template
+    value_template: "{{ 'quadruple' == trigger.payload_json.click }}"
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: group.kitchen_lights
+        brightness: 1
+- alias: Toggle Kitchen Lights
+  initial_state: true
+  trigger:
+    platform: mqtt
+    topic: "zigbee2mqtt/0x00158d0001e88eae"
+  condition:
+    condition: template
+    value_template: "{{ 'single' == trigger.payload_json.click }}"
+  action:
+    service: light.toggle
+    data:
+      entity_id: group.kitchen_lights
+- alias: Closet activity
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.0x00158d000236a471_occupancy
+    to: 'on'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: group.closet_lights
+- alias: Closet activity off
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.0x00158d000236a471_occupancy
+    to: 'off'
+  action:
+    service: light.turn_off
+    data:
+      entity_id: group.closet_lights
+- alias: light 1
+  initial_state: true
+  trigger:
+    platform: mqtt
+    topic: "zigbee2mqtt/0x00158d000278eb90"
+  condition:
+    condition: template
+    value_template: "{{ 'rotate_right' == trigger.payload_json.action }}"
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.0xb0ce1814030dedf3
+- alias: light 2
+  initial_state: true
+  trigger:
+    platform: mqtt
+    topic: "zigbee2mqtt/0x00158d000278eb90"
+  condition:
+    condition: template
+    value_template: "{{ 'rotate_left' == trigger.payload_json.action }}"
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.0xb0ce1814030ef600
+- alias: light 3
+  initial_state: true
+  trigger:
+    platform: mqtt
+    topic: "zigbee2mqtt/0x00158d000278eb90"
+  condition:
+    condition: template
+    value_template: "{{ 'flip90' == trigger.payload_json.action }}"
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.0xb0ce1814030ef600, light.0xb0ce1814030dedf3
+- alias: Turn on Dining Room AC if it's too hot and someone is home and we're not sleeping
+  initial_state: true
+  trigger:
+    platform: template
+    value_template: >
+      {{ states("sensor.0x00158d00022cc96b_temperature") | float > 77 }}
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.phones
+        state: 'home'
+      - condition: time
+        after: '8:00:00'
+        before: '23:00:00'
+  action:
+    service: switch.turn_on
+    data:
+      entity_id: switch.50684814bcddc209a824
+- alias: Turn on Dining Room AC if it's too hot and someone is home and we're sleeping
+  initial_state: true
+  trigger:
+    platform: template
+    value_template: >
+      {{ states("sensor.0x00158d00022cc96b_temperature") | float > 79 }}
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.phones
+        state: 'home'
+      - condition: time
+        after: '23:00:00'
+        before: '8:00:00'
+  action:
+    service: switch.turn_on
+    data:
+      entity_id: switch.50684814bcddc209a824
+- alias: Turn on Bedroom Room AC if it's too hot and someone is home
+  initial_state: true
+  trigger:
+    platform: template
+    value_template: >
+      {{ states("sensor.0x00158d00022c7d5b_temperature") | float > 77 }}
+  condition:
+    condition: state
+    entity_id: group.phones
+    state: 'home'
+  action:
+    service: switch.turn_on
+    data:
+      entity_id: switch.50684814dc4f2233de45
+- alias: Turn off Dining Room AC if it's too cold
+  initial_state: true
+  trigger:
+    platform: template
+    value_template: >
+      {{ states("sensor.0x00158d00022cc96b_temperature") | float < 76 }}
+  action:
+    service: switch.turn_off
+    data:
+      entity_id: switch.50684814bcddc209a824
+- alias: Turn off Dining Room AC if it's too cold at night
+  initial_state: true
+  trigger:
+    platform: template
+    value_template: >
+      {{ states("sensor.0x00158d00022cc96b_temperature") | float < 77 }}
+  condition:
+    condition: time
+    after: '23:00:00'
+    before: '8:00:00'
+  action:
+    service: switch.turn_off
+    data:
+      entity_id: switch.50684814bcddc209a824
+- alias: Turn off Bedroom Room AC if it's too cold
+  initial_state: true
+  trigger:
+    platform: template
+    value_template: >
+      {{ states("sensor.0x00158d00022c7d5b_temperature") | float < 75.5 }}
+  action:
+    service: switch.turn_off
+    data:
+      entity_id: switch.50684814dc4f2233de45
+- alias: Turn on Dining Room AC if it's way too hot
+  initial_state: true
+  trigger:
+    platform: template
+    value_template: >
+      {{ states("sensor.0x00158d00022cc96b_temperature") | float > 85 }}
+  action:
+    service: switch.turn_on
+    data:
+      entity_id: switch.50684814bcddc209a824
+- alias: Turn on Bedroom Room AC if it's way too hot
+  initial_state: true
+  trigger:
+    platform: template
+    value_template: >
+      {{ states("sensor.0x00158d00022c7d5b_temperature") | float > 85 }}
+  action:
+    service: switch.turn_on
+    data:
+      entity_id: switch.50684814dc4f2233de45
+- alias: Turn off Dining Room AC if it was way too hot but now its not
+  initial_state: true
+  trigger:
+    platform: template
+    value_template: >
+      {{ states("sensor.0x00158d00022cc96b_temperature") | float < 83 }}
+  condition:
+    condition: state
+    entity_id: group.phones
+    state: 'not_home'
+  action:
+    service: switch.turn_off
+    data:
+      entity_id: switch.50684814bcddc209a824
+- alias: Turn off Bedroom Room AC if it was way too hot but now its not
+  initial_state: true
+  trigger:
+    platform: template
+    value_template: >
+      {{ states("sensor.0x00158d00022c7d5b_temperature") | float < 83 }}
+  condition:
+    condition: state
+    entity_id: group.phones
+    state: 'not_home'
+  action:
+    service: switch.turn_off
+    data:
+      entity_id: switch.50684814dc4f2233de45
+- alias: Turn off wyze when someone is home
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: group.phones
+    from: 'not_home'
+    to: 'home'
+  action:
+    service: switch.turn_off
+    data:
+      entity_id: switch.8281608184f3eb6806f0
+- alias: Notify if door opens and nobody home
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.0x00158d00022eff01
+    from: 'off'
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: group.phones
+    state: 'not_home'
+  action:
+    service: notify.notify
+    data:
+      message: 'Front door opened'
+- alias: Turn on wyze if nobody is home
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: group.phones
+    from: 'home'
+    to: 'not_home'
+  action:
+    service: switch.turn_on
+    data:
+      entity_id: switch.8281608184f3eb6806f0
+- alias: Turn off lights when nobody is home
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: group.phones
+    from: 'home'
+    to: 'not_home'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: group.all_lights
+    - service: switch.turn_off
+      entity_id: group.switch_lights

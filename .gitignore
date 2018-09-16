@@ -1,5 +1,6 @@
 *
 !*.yaml
+!automation
 !.gitignore
 secrets.yaml
 known_devices.yaml
