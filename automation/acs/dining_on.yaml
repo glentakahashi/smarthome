@@ -36,7 +36,7 @@ condition:
             - condition: state
               entity_id: group.phones
               state: 'not_home'
-        # home and not sleeping
+        # home and day
         - condition: and
           conditions:
             - condition: numeric_state
@@ -45,21 +45,21 @@ condition:
             - condition: state
               entity_id: group.phones
               state: 'home'
-            - condition: time
-              after: '8:00:00'
-              before: '23:00:00'
-        # home and night time
+            - condition: state
+              entity_id: sun.sun
+              state: 'above_horizon'
+        # home and night
         - condition: and
           conditions:
             - condition: numeric_state
               entity_id: sensor.0x00158d00022cc96b_temperature
-              above: 80
+              above: 78
             - condition: state
               entity_id: group.phones
               state: 'home'
-            - condition: time
-              after: '23:00:00'
-              before: '8:00:00'
+            - condition: state
+              entity_id: sun.sun
+              state: 'below_horizon'
 action:
   service: switch.turn_on
   data:
