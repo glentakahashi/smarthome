@@ -52,9 +52,9 @@ condition:
             - condition: state
               entity_id: group.phones
               state: 'home'
-            - condition: state
-              entity_id: sun.sun
-              state: 'above_horizon'
+            - condition: time
+              after: '8:00'
+              before: '23:00'
         # home and night
         - condition: and
           conditions:
@@ -64,9 +64,9 @@ condition:
             - condition: state
               entity_id: group.phones
               state: 'home'
-            - condition: state
-              entity_id: sun.sun
-              state: 'below_horizon'
+            - condition: time
+              after: '23:00'
+              before: '8:00'
 action:
   service: switch.turn_on
   data:
