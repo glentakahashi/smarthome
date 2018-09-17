@@ -24,7 +24,6 @@ Bedroom Lights:
   - light.0xb0ce1814030dad86
   - light.0xb0ce1814030dcd16
 Living Room Windows:
-  - binary_sensor.0x00158d00022bd487
   - binary_sensor.0x00158d000236fa41
   - binary_sensor.0x00158d000237011b
 Bedroom Windows:
