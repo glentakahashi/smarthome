@@ -6,6 +6,7 @@ trigger:
       - sensor.0x00158d00022cc96b_temperature
       - sensor.0x00158d00022c7d5b_temperature
       - group.living_room_windows
+      - binary_sensor.0x00158d00022bd487
       - group.bedroom_windows
       - binary_sensor.0x00158d000237c71b
       - group.phones
@@ -20,9 +21,14 @@ condition:
           state: 'off'
         - condition: or
           conditions:
-            - condition: state
-              entity_id: group.bedroom_windows
-              state: 'off'
+            - condition: and
+              conditions:
+                - condition: state
+                  entity_id: group.bedroom_windows
+                  state: 'off'
+                - condition: state
+                  entity_id: binary_sensor.0x00158d00022bd487
+                  state: 'off'
             - condition: state
               entity_id: binary_sensor.0x00158d000237c71b
               state: 'off'
@@ -42,7 +48,7 @@ condition:
           conditions:
             - condition: numeric_state
               entity_id: sensor.0x00158d00022cc96b_temperature
-              above: 78
+              above: 77
             - condition: state
               entity_id: group.phones
               state: 'home'

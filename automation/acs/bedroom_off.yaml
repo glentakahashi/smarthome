@@ -22,14 +22,16 @@ condition:
           state: 'on'
         - condition: and
           conditions:
-            - condition: state
-              entity_id: group.living_room_windows
-              state: 'on'
-            - condition: state
-              entity_id: binary_sensor.0x00158d00022bd487
-              state: 'on'
-              for:
-                seconds: 30
+            - condition: or
+              conditions:
+                - condition: state
+                  entity_id: group.living_room_windows
+                  state: 'on'
+                - condition: state
+                  entity_id: binary_sensor.0x00158d00022bd487
+                  state: 'on'
+                  for:
+                    seconds: 30
             - condition: state
               entity_id: binary_sensor.0x00158d000237c71b
               state: 'on'
