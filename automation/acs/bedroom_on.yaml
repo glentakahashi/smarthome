@@ -9,6 +9,7 @@ trigger:
       - group.bedroom_windows
       - binary_sensor.0x00158d000237c71b
       - group.phones
+      - sun.sun
 condition:
   condition: and
   conditions:
