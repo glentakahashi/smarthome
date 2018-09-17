@@ -42,7 +42,7 @@ condition:
           conditions:
             - condition: numeric_state
               entity_id: sensor.0x00158d00022cc96b_temperature
-              above: 77
+              above: 78
             - condition: state
               entity_id: group.phones
               state: 'home'
@@ -54,7 +54,7 @@ condition:
           conditions:
             - condition: numeric_state
               entity_id: sensor.0x00158d00022cc96b_temperature
-              above: 78
+              above: 79
             - condition: state
               entity_id: group.phones
               state: 'home'
