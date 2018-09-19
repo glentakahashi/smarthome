@@ -39,7 +39,7 @@ condition:
     - condition: and
       conditions:
         - condition: numeric_state
-          entity_id: sensor.0x00158d00022cc96b_temperature
+          entity_id: sensor.0x00158d00022c7d5b_temperature
           below: 85
         - condition: state
           entity_id: group.phones
@@ -48,7 +48,7 @@ condition:
     - condition: and
       conditions:
         - condition: numeric_state
-          entity_id: sensor.0x00158d00022cc96b_temperature
+          entity_id: sensor.0x00158d00022c7d5b_temperature
           below: 76
         - condition: state
           entity_id: group.phones
@@ -60,7 +60,7 @@ condition:
     - condition: and
       conditions:
         - condition: numeric_state
-          entity_id: sensor.0x00158d00022cc96b_temperature
+          entity_id: sensor.0x00158d00022c7d5b_temperature
           below: 77
         - condition: state
           entity_id: group.phones
