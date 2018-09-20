@@ -12,62 +12,67 @@ trigger:
       - group.phones
       - sun.sun
 condition:
-  condition: or
+  condition: and
   conditions:
-    # open doors/windows
+    - condition: state
+      entity_id: switch.50684814bcddc209a824
+      state: 'on'
     - condition: or
       conditions:
-        - condition: state
-          entity_id: group.living_room_windows
-          state: 'on'
+        # open doors/windows
+        - condition: or
+          conditions:
+            - condition: state
+              entity_id: group.living_room_windows
+              state: 'on'
+            - condition: and
+              conditions:
+                - condition: or
+                  conditions:
+                    - condition: state
+                      entity_id: group.bedroom_windows
+                      state: 'on'
+                    - condition: state
+                      entity_id: binary_sensor.0x00158d00022bd487
+                      state: 'on'
+                      for:
+                        seconds: 30
+                - condition: state
+                  entity_id: binary_sensor.0x00158d000237c71b
+                  state: 'on'
+        # nobody home
         - condition: and
           conditions:
-            - condition: or
-              conditions:
-                - condition: state
-                  entity_id: group.bedroom_windows
-                  state: 'on'
-                - condition: state
-                  entity_id: binary_sensor.0x00158d00022bd487
-                  state: 'on'
-                  for:
-                    seconds: 30
+            - condition: numeric_state
+              entity_id: sensor.0x00158d00022cc96b_temperature
+              below: 85
             - condition: state
-              entity_id: binary_sensor.0x00158d000237c71b
-              state: 'on'
-    # nobody home
-    - condition: and
-      conditions:
-        - condition: numeric_state
-          entity_id: sensor.0x00158d00022cc96b_temperature
-          below: 85
-        - condition: state
-          entity_id: group.phones
-          state: 'not_home'
-    # home and day
-    - condition: and
-      conditions:
-        - condition: numeric_state
-          entity_id: sensor.0x00158d00022cc96b_temperature
-          below: 77
-        - condition: state
-          entity_id: group.phones
-          state: 'home'
-        - condition: time
-          after: '8:00'
-          before: '23:00'
-    # home and night
-    - condition: and
-      conditions:
-        - condition: numeric_state
-          entity_id: sensor.0x00158d00022cc96b_temperature
-          below: 79
-        - condition: state
-          entity_id: group.phones
-          state: 'home'
-        - condition: time
-          after: '23:00'
-          before: '8:00'
+              entity_id: group.phones
+              state: 'not_home'
+        # home and day
+        - condition: and
+          conditions:
+            - condition: numeric_state
+              entity_id: sensor.0x00158d00022cc96b_temperature
+              below: 77
+            - condition: state
+              entity_id: group.phones
+              state: 'home'
+            - condition: time
+              after: '8:00'
+              before: '23:00'
+        # home and night
+        - condition: and
+          conditions:
+            - condition: numeric_state
+              entity_id: sensor.0x00158d00022cc96b_temperature
+              below: 79
+            - condition: state
+              entity_id: group.phones
+              state: 'home'
+            - condition: time
+              after: '23:00'
+              before: '8:00'
 action:
   service: switch.turn_off
   data:
