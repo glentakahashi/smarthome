@@ -2,12 +2,12 @@ Phones:
   - device_tracker.spectre
   - device_tracker.mariesiphone
 Switch Lights:
-  - switch.82816081b4e62d41f660
-  - switch.8281608184f3eb6806c4
-  - switch.82816081b4e62d41fdc9
+  - switch.dining_room_light
+  - switch.living_room_light
+  - switch.bedlamp
 ACs:
-  - switch.50684814dc4f2233de45
-  - switch.50684814bcddc209a824
+  - switch.living_room_ac
+  - switch.bedroom_ac
 Kitchen Lights:
   - light.0xb0ce18140316d859
   - light.0xb0ce1814031bbfb6
@@ -64,5 +64,5 @@ AC Automations:
   - automation.turn_off_dining_room_ac
   - automation.turn_on_dining_room_ac
 Bedroom Media:
-  - switch.24083847bcddc28b3eea
+  - switch.bedroom_speakers
   - switch.bedroom_tv_power

@@ -1,4 +1,4 @@
-alias: Turn on Dining Room AC
+alias: Turn on Living Room AC
 initial_state: true
 trigger:
   - platform: state
@@ -15,7 +15,7 @@ condition:
   condition: and
   conditions:
     - condition: state
-      entity_id: switch.50684814bcddc209a824
+      entity_id: switch.living_room_ac
       state: 'off'
     - condition: and
       conditions:
@@ -73,4 +73,4 @@ condition:
 action:
   service: switch.turn_on
   data:
-    entity_id: switch.50684814bcddc209a824
+    entity_id: switch.living_room_ac

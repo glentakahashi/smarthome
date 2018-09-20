@@ -122,14 +122,70 @@ switch:
     host: 192.168.1.98
     name: Computer
     broadcast_address: 192.168.1.255
+  - platform: tuya
+    host: 192.168.1.104
+    local_key: 5c7312a0ec1b4f28
+    device_id: 50684814bcddc209a824
+    switches:
+      living_room_ac:
+        friendly_name: Living Room AC
+        id: 1
+  - platform: tuya
+    host: 192.168.1.31
+    local_key: de77ec82aa40da90
+    device_id: 24083847bcddc28b3eea
+    switches:
+      bedroom_speakers:
+        friendly_name: Bedroom Speakers
+        id: 1
+  - platform: tuya
+    host: 192.168.1.148
+    local_key: d9641ffef5786375
+    device_id: 82816081b4e62d41f660
+    switches:
+      bedlamp:
+        friendly_name: Bedlamp
+        id: 1
+  - platform: tuya
+    host: 192.168.1.176
+    local_key: 0e0ed1eb24ecafb7
+    device_id: 8281608184f3eb6806c4
+    switches:
+      dining_room_light:
+        friendly_name: Dining Room Light
+        id: 1
+  - platform: tuya
+    host: 192.168.1.220
+    local_key: bcb9246d38337185
+    device_id: 8281608184f3eb6806f0
+    switches:
+      living_room_wyze:
+        friendly_name: Living Room Wyze
+        id: 1
+  - platform: tuya
+    host: 192.168.1.251
+    local_key: 415d514ba4e19ec6
+    device_id: 82816081b4e62d41fdc9
+    switches:
+      living_room_light:
+        friendly_name: Living Room Light
+        id: 1
+  - platform: tuya
+    host: 192.168.1.252
+    local_key: 4f62d4b5d2ff53c1
+    device_id: 50684814dc4f2233de45
+    switches:
+      bedroom_ac:
+        friendly_name: Bedroom AC
+        id: 1
 
 ifttt:
   key: LR0bDx1WO14kNPZSZh_0KLKEFrLoaNb9z0CBDc79wy
 
-tuya:
-  username: glen@glentaka.com
-  password: !secret tuya_password
-  country_code: 1
+#tuya:
+#  username: glen@glentaka.com
+#  password: !secret tuya_password
+#  country_code: 1
 
 # Example configuration.yaml entry
 device_tracker:

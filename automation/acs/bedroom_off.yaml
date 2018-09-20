@@ -15,7 +15,7 @@ condition:
   condition: and
   conditions:
     - condition: state
-      entity_id: switch.50684814dc4f2233de45
+      entity_id: switch.bedroom_ac
       state: 'on'
     - condition: or
       conditions:
@@ -76,4 +76,4 @@ condition:
 action:
   service: switch.turn_off
   data:
-    entity_id: switch.50684814dc4f2233de45
+    entity_id: switch.bedroom_ac

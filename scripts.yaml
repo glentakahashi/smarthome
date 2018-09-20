@@ -3,7 +3,7 @@ bedroom_chromecast_on:
   sequence:
     - service: switch.turn_on
       data:
-        entity_id: switch.bedroom_tv_power, switch.24083847bcddc28b3eea
+        entity_id: switch.bedroom_tv_power, switch.bedroom_speakers
     - service: shell_command.load_roku_app
       data_template:
         app: 'tvinput.hdmi1'
@@ -15,4 +15,4 @@ bedroom_chromecast_off:
         entity_id: media_player.chromecast0856
     - service: switch.turn_off
       data:
-        entity_id: switch.bedroom_tv_power, switch.24083847bcddc28b3eea
+        entity_id: switch.bedroom_tv_power, switch.bedroom_speakers
