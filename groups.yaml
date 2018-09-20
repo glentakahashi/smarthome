@@ -36,6 +36,16 @@ Kitchen Light Automations:
   - automation.1_kitchen_lights
   - automation.50_kitchen_lights
   - automation.toggle_kitchen_lights
+Bathroom Light Automations:
+  - automation.100_bathroom_lights
+  - automation.1_bathroom_lights
+  - automation.50_bathroom_lights
+  - automation.toggle_bathroom_lights
+Bedroom Light Automations:
+  - automation.100_bedroom_lights
+  - automation.1_bedroom_lights
+  - automation.50_bedroom_lights
+  - automation.toggle_bedroom_lights
 Closet Light Automations:
   - automation.closet_activity
   - automation.closet_activity_off
@@ -50,6 +60,9 @@ Presence Automations:
   - automation.turn_on_wyze_if_nobody_is_home
 AC Automations:
   - automation.turn_off_bedroom_ac
-  - automation.turn_off_dining_room_ac
   - automation.turn_on_bedroom_ac
+  - automation.turn_off_dining_room_ac
   - automation.turn_on_dining_room_ac
+Bedroom Media:
+  - switch.24083847bcddc28b3eea
+  - switch.bedroom_tv_power

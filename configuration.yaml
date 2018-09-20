@@ -76,13 +76,6 @@ sun:
 sensor:
   - platform: yr
 
-switch:
-  - platform: wake_on_lan
-    mac_address: "E0-D5-5E-0C-D4-87"
-    host: 192.168.1.98
-    name: Computer
-    broadcast_address: 192.168.1.255
-  
 #zwave: 
 #  usb_path: /dev/ttyUSB0
 
@@ -109,6 +102,29 @@ tts:
 
 # Cloud
 cloud:
+
+media_extractor:
+
+shell_command:
+  load_roku_app: 'curl -X POST http://192.168.1.67:8060/launch/{{ app }}'
+
+switch:
+  - platform: command_line
+    switches:
+      #toggles bedroom Roku TV
+      bedroom_tv_power:
+        command_on: 'curl -X POST http://192.168.1.67:8060/keypress/PowerOn'
+        command_off: 'curl -X POST http://192.168.1.67:8060/keypress/PowerOff'
+        command_state: 'curl -s GET http://192.168.1.67:8060/query/device-info | grep power-mode | sed -e "s:<power-mode>DisplayOff</power-mode>:OFF:" -e "s:<power-mode>PowerOn</power-mode>:ON:"'
+        value_template: '{{ value == "ON" }}'
+  - platform: wake_on_lan
+    mac_address: "E0-D5-5E-0C-D4-87"
+    host: 192.168.1.98
+    name: Computer
+    broadcast_address: 192.168.1.255
+
+ifttt:
+  key: LR0bDx1WO14kNPZSZh_0KLKEFrLoaNb9z0CBDc79wy
 
 tuya:
   username: glen@glentaka.com

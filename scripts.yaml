@@ -1,0 +1,18 @@
+bedroom_chromecast_on:
+  alias: Bedroom Chromecast On
+  sequence:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.bedroom_tv_power, switch.24083847bcddc28b3eea
+    - service: shell_command.load_roku_app
+      data_template:
+        app: 'tvinput.hdmi1'
+bedroom_chromecast_off:
+  alias: Bedroom Chromecast Off
+  sequence:
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.chromecast0856
+    - service: switch.turn_off
+      data:
+        entity_id: switch.bedroom_tv_power, switch.24083847bcddc28b3eea

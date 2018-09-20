@@ -24,3 +24,5 @@ light.0xb0ce18140334b0ab:
   friendly_name: Bathroom Light 2
 light.0xb0ce181403364149:
   friendly_name: Bathroom Light 3
+switch.bedroom_tv_power:
+  friendly_name: Bedroom Roku

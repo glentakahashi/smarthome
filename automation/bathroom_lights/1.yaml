@@ -1,0 +1,13 @@
+alias: 1% Bathroom Lights
+initial_state: true
+trigger:
+  platform: mqtt
+  topic: "zigbee2mqtt/0x00158d0001e89324"
+condition:
+  condition: template
+  value_template: "{{ 'quadruple' == trigger.payload_json.click }}"
+action:
+  - service: light.turn_on
+    data:
+      entity_id: group.bathroom_lights
+      brightness: 1
