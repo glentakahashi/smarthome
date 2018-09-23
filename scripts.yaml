@@ -16,3 +16,19 @@ bedroom_chromecast_off:
     - service: switch.turn_off
       data:
         entity_id: switch.bedroom_tv_power, switch.bedroom_speakers
+all_off:
+  alias: All off
+  sequence:
+    - service: switch.turn_off
+      data:
+        entity_id: group.switch_lights
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+bedtime:
+  alias: Bedtime 
+  sequence:
+    - delay:
+        minutes: 30
+    - service: script.bedroom_chromecast_off
+    - service: script.all_off

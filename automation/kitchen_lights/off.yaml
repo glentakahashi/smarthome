@@ -1,0 +1,17 @@
+alias: Turn Off Kitchen Lights
+initial_state: true
+trigger:
+  platform: mqtt
+  topic: "zigbee2mqtt/0x00158d0001e88eae"
+condition:
+  condition: and
+  conditions:
+    - condition: template
+      value_template: "{{ 'single' == trigger.payload_json.click }}"
+    - condition: state
+      entity_id: group.kitchen_lights
+      state: 'on'
+action:
+  service: light.turn_off
+  data:
+    entity_id: group.kitchen_lights

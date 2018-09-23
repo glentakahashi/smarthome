@@ -1,0 +1,24 @@
+alias: Turn on Kitchen Lights in evening
+initial_state: true
+trigger:
+  platform: mqtt
+  topic: "zigbee2mqtt/0x00158d0001e88eae"
+condition:
+  condition: and
+  conditions:
+    - condition: template
+      value_template: "{{ 'single' == trigger.payload_json.click }}"
+    - condition: state
+      entity_id: group.kitchen_lights
+      state: 'off'
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: time
+      after: '6:00'
+      before: '23:00'
+action:
+  service: light.turn_on
+  data:
+    entity_id: group.kitchen_lights
+    brightness: 96

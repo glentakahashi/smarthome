@@ -36,7 +36,7 @@ logger:
 
 http:
   # Secrets are defined in the file secrets.yaml
-  api_password: !secret http_password
+  # api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   base_url: littlefoot.duckdns.org:8123
   ssl_certificate: /etc/letsencrypt/live/littlefoot.duckdns.org/fullchain.pem
@@ -131,9 +131,9 @@ switch:
         friendly_name: Living Room AC
         id: 1
   - platform: tuya
-    host: 192.168.1.31
-    local_key: de77ec82aa40da90
-    device_id: 24083847bcddc28b3eea
+    host: 192.168.1.201
+    local_key: bfb03f52d89a61a1
+    device_id: 8281608184f3eb680f4f
     switches:
       bedroom_speakers:
         friendly_name: Bedroom Speakers
@@ -143,8 +143,16 @@ switch:
     local_key: d9641ffef5786375
     device_id: 82816081b4e62d41f660
     switches:
-      bedlamp:
-        friendly_name: Bedlamp
+      marie_lamp:
+        friendly_name: Marie's Lamp
+        id: 1
+  - platform: tuya
+    host: 192.168.1.31
+    local_key: 163b72e0c6de356a
+    device_id: 24083847bcddc28b3eea
+    switches:
+      glen_lamp:
+        friendly_name: Glen's Lamp
         id: 1
   - platform: tuya
     host: 192.168.1.176
@@ -164,7 +172,7 @@ switch:
         id: 1
   - platform: tuya
     host: 192.168.1.251
-    local_key: 415d514ba4e19ec6
+    local_key: fe75d57a47a85ca3
     device_id: 82816081b4e62d41fdc9
     switches:
       living_room_light:

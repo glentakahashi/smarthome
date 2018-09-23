@@ -4,7 +4,8 @@ Phones:
 Switch Lights:
   - switch.dining_room_light
   - switch.living_room_light
-  - switch.bedlamp
+  - switch.glen_lamp
+  - switch.marie_lamp
 ACs:
   - switch.living_room_ac
   - switch.bedroom_ac
@@ -35,17 +36,26 @@ Kitchen Light Automations:
   - automation.100_kitchen_lights
   - automation.1_kitchen_lights
   - automation.50_kitchen_lights
-  - automation.toggle_kitchen_lights
+  - automation.turn_off_kitchen_lights
+  - automation.turn_on_kitchen_lights_at_night
+  - automation.turn_on_kitchen_lights_during_day
+  - automation.turn_on_kitchen_lights_in_evening
 Bathroom Light Automations:
   - automation.100_bathroom_lights
   - automation.1_bathroom_lights
   - automation.50_bathroom_lights
-  - automation.toggle_bathroom_lights
+  - automation.turn_off_bathroom_lights
+  - automation.turn_on_bathroom_lights_at_night
+  - automation.turn_on_bathroom_lights_during_day
+  - automation.turn_on_bathroom_lights_in_evening
 Bedroom Light Automations:
   - automation.100_bedroom_lights
   - automation.1_bedroom_lights
   - automation.50_bedroom_lights
-  - automation.toggle_bedroom_lights
+  - automation.turn_off_bedroom_lights
+  - automation.turn_on_bedroom_lights_at_night
+  - automation.turn_on_bedroom_lights_during_day
+  - automation.turn_on_bedroom_lights_in_evening
 Closet Light Automations:
   - automation.closet_activity
   - automation.closet_activity_off
@@ -61,8 +71,8 @@ Presence Automations:
 AC Automations:
   - automation.turn_off_bedroom_ac
   - automation.turn_on_bedroom_ac
-  - automation.turn_off_dining_room_ac
-  - automation.turn_on_dining_room_ac
+  - automation.turn_off_living_room_ac
+  - automation.turn_on_living_room_ac
 Bedroom Media:
   - switch.bedroom_speakers
   - switch.bedroom_tv_power
