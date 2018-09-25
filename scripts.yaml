@@ -26,13 +26,34 @@ all_off:
       data:
         entity_id: group.all_lights
 theather:
-  alias: Theater Mode 
+  alias: Theater Mode
   sequence:
     - service: script.all_off
 bedtime:
-  alias: Bedtime 
+  alias: Bedtime
   sequence:
     - delay:
         minutes: 30
     - service: script.bedroom_chromecast_off
     - service: script.all_off
+automatic_light_on:
+  alias: Automatic Light Brightness
+  sequence:
+    - service: >
+        {% if is_state(light, 'on') %}
+          off
+        {% else %}
+          on
+        {% endif %}
+      data_template:
+        entity_id: "{{ light }}"
+        brightness_pct: >
+         {% if is_state('sun.sun.state', 'below_horizon') %}
+           {% if now().hour > 6 && now().hour < 23 %}
+            30
+           {% elif states.light.living.attributes.brightness <= 51 %}
+            1
+           {% endif %}
+         {% else %}
+           100
+         {% endif %}
