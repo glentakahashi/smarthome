@@ -1,11 +1,12 @@
-alias: Toggle Marie Lamp
+alias: Toggle Bedroom Lights
 initial_state: true
 trigger:
   platform: mqtt
   topic: "zigbee2mqtt/0x00158d0001ef8506"
 condition:
   condition: template
-  value_template: "{{ 'triple' == trigger.payload_json.click }}"
+  value_template: "{{ 'quadruple' == trigger.payload_json.click }}"
 action:
-  - service: switch.toggle
-    entity_id: switch.maries_lamp
+  - service: script.automatic_light_toggle
+    data:
+      entity_id: group.bedroom_lights

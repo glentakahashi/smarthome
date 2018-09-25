@@ -1,0 +1,10 @@
+alias: Kitchen Light Button
+initial_state: true
+trigger:
+  platform: mqtt
+  topic: "zigbee2mqtt/0x00158d0001e88eae"
+action:
+  service: script.automatic_light_button
+  data_template:
+    entity_id: group.kitchen_lights
+    click: "{{ trigger.payload_json.click }}"
