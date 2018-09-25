@@ -1,4 +1,4 @@
-alias: TV on
+alias: Toggle Bedroom AC
 initial_state: true
 trigger:
   platform: mqtt
@@ -7,4 +7,5 @@ condition:
   condition: template
   value_template: "{{ 'single' == trigger.payload_json.click }}"
 action:
-  - service: script.bedroom_chromecast_on
+  - service: switch.toggle
+    entity_id: switch.bedroom_ac

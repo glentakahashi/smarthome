@@ -1,0 +1,15 @@
+alias: TV off
+initial_state: true
+trigger:
+  platform: mqtt
+  topic: "zigbee2mqtt/0x00158d0001ef8506"
+condition:
+  condition: and
+  conditions:
+    - condition: template
+      value_template: "{{ 'double' == trigger.payload_json.click }}"
+    - condition: state
+      entity_id: switch.bedroom_tv_power
+      state: 'on'
+action:
+  - service: script.bedroom_chromecast_off

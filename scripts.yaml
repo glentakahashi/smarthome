@@ -25,6 +25,10 @@ all_off:
     - service: light.turn_off
       data:
         entity_id: group.all_lights
+theather:
+  alias: Theater Mode 
+  sequence:
+    - service: script.all_off
 bedtime:
   alias: Bedtime 
   sequence:
