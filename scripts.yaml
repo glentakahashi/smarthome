@@ -4,9 +4,6 @@ bedroom_chromecast_on:
     - service: switch.turn_on
       data:
         entity_id: switch.bedroom_tv_power, switch.bedroom_speakers
-    - service: shell_command.load_roku_app
-      data_template:
-        app: 'tvinput.hdmi1'
 bedroom_chromecast_off:
   alias: Bedroom Chromecast Off
   sequence:

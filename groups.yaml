@@ -30,6 +30,9 @@ Living Room Windows:
 Bedroom Windows:
   - binary_sensor.0x00158d000232dc09
   - binary_sensor.0x00158d0002329dac
+Wyze Cams:
+  - switch.living_room_wyze
+  - switch.bedroom_wyze
 Closet Lights:
   - light.0xb0ce181403360228
 Closet Light Automations:
