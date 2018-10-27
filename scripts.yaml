@@ -94,9 +94,9 @@ automatic_light_switch:
   alias: Standard Xiaomi Two-button Switch Light Controls
   sequence:
     - service_template: >
-        {% if click == 'both'  %}
+        {% if click == 'right'  %}
           script.incrementing_light
-        {% else %}
+        {% elif click == 'left'  %}
           script.automatic_light_toggle
         {% endif %}
       data_template:

@@ -1,0 +1,9 @@
+alias: Living Room Lamp
+initial_state: true
+trigger:
+  platform: mqtt
+  topic: "zigbee2mqtt/0x00158d0001e88eae"
+action:
+  service: switch.toggle
+  data:
+    entity_id: switch.living_room_light

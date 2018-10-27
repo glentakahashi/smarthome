@@ -1,0 +1,9 @@
+alias: Dining Room Lamp
+initial_state: true
+trigger:
+  platform: mqtt
+  topic: "zigbee2mqtt/0x00158d0001e79023"
+action:
+  service: switch.toggle
+  data:
+    entity_id: switch.dining_room_light
