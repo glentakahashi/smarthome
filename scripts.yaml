@@ -123,12 +123,16 @@ bedroom_button:
          script.automatic_light_toggle
        {% elif click == 'triple' %}
          script.tv_toggle
+       {% elif click == 'quadruple' %}
+         script.incrementing_light
        {% endif %}
       data_template:
         entity_id: >
          {% if click == 'single' %}
-           "{{ lamp_entity_id }}"
+           {{ lamp_entity_id }}
          {% elif click == 'double' %}
+           group.bedroom_lights
+         {% elif click == 'quadruple' %}
            group.bedroom_lights
          {% endif %}
 tv_toggle:

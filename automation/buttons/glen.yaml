@@ -2,7 +2,7 @@ alias: Glen button
 initial_state: true
 trigger:
   platform: mqtt
-  topic: "zigbee2mqtt/0x00158d0001e88eae"
+  topic: "zigbee2mqtt/0x00158d0001e89324"
 action:
   - service: script.bedroom_button
     data_template:
