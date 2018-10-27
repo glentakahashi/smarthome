@@ -1,11 +1,11 @@
 bedroom_chromecast_on:
-  alias: Bedroom Chromecast On
+  alias: Bedroom Tv On
   sequence:
     - service: switch.turn_on
       data:
         entity_id: switch.bedroom_tv_power, switch.bedroom_speakers
 bedroom_chromecast_off:
-  alias: Bedroom Chromecast Off
+  alias: Bedroom Tv Off
   sequence:
     - service: media_player.turn_off
       data:
