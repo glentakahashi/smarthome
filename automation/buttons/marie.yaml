@@ -1,0 +1,10 @@
+alias: Marie button
+initial_state: true
+trigger:
+  platform: mqtt
+  topic: "zigbee2mqtt/0x00158d0001ef8506"
+action:
+  - service: script.bedroom_button
+    data_template:
+      lamp_entity_id: switch.maries_lamp
+      click: "{{ trigger.payload_json.click }}"

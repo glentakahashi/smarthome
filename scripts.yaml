@@ -113,3 +113,30 @@ automatic_light_button:
       data_template:
         entity_id: "{{ entity_id }}"
         click: "{{ click }}"
+bedroom_button:
+  alias: Generic Bedroom Button
+  sequence:
+    - service_template: >
+       {% if click == 'single' %}
+         switch.toggle
+       {% elif click == 'double' %}
+         script.automatic_light_toggle
+       {% elif click == 'triple' %}
+         script.tv_toggle
+       {% endif %}
+      data_template:
+        entity_id: >
+         {% if click == 'single' %}
+           "{{ lamp_entity_id }}"
+         {% elif click == 'double' %}
+           group.bedroom_lights
+         {% endif %}
+tv_toggle:
+  alias: Bedroom TV Toggle
+  sequence:
+    - service_template: >
+        {% if is_state('switch.bedroom_tv_power', 'on') %}
+          script.bedroom_chromecast_off
+        {% else %}
+          script.bedroom_chromecast_on
+        {% endif %}
