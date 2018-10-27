@@ -1,0 +1,14 @@
+alias: Away thermostat
+initial_state: true
+trigger:
+  - platform: state
+    entity_id: group.phones
+action:
+  - service: climate.set_away_mode
+    data_template:
+      away_mode: >
+        {% if is_state('group.phones', 'home') %}
+          off
+        {% else %}
+          on
+        {% endif %}

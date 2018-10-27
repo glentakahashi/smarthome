@@ -1,0 +1,18 @@
+alias: Day thermostats
+initial_state: true
+trigger:
+  - platform: time
+    at: '8:00'
+condition:
+  condition: template
+  # choose one thermostat arbitrarily since we can't ensure they're lockstep
+  value_template: "{{ state_attr('climate.living_room_thermostat', 'away_mode') == 'off' }}"
+action:
+  - service: climate.set_temperature
+    data:
+      entity_id: climate.living_room_thermostat
+      temperature: 77
+  - service: climate.set_temperature
+    data:
+      entity_id: climate.bedroom_thermostat
+      temperature: 78

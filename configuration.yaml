@@ -141,6 +141,24 @@ shell_command:
 
 switch: !include switches.yaml
 
+climate:
+  - platform: generic_thermostat
+    name: Living Room Thermostat
+    heater: switch.living_room_ac
+    ac_mode: true
+    target_sensor: sensor.0x00158d00022cc96b_temperature
+    min_cycle_duration:
+      minutes: 10
+    away_temp: 85
+  - platform: generic_thermostat
+    name: Bedroom Thermostat
+    heater: switch.bedroom_ac
+    ac_mode: true
+    target_sensor: sensor.0x00158d00022c7d5b_temperature
+    min_cycle_duration:
+      minutes: 10
+    away_temp: 85
+
 ifttt:
   key: !secret ifttt
 

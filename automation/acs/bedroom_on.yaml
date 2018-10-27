@@ -1,76 +1,32 @@
-alias: Turn on Bedroom AC
+alias: Turn on Bedroom Thermostat
 initial_state: true
 trigger:
   - platform: state
     entity_id:
-      - sensor.0x00158d00022cc96b_temperature
-      - sensor.0x00158d00022c7d5b_temperature
       - group.living_room_windows
       - binary_sensor.0x00158d00022bd487
       - group.bedroom_windows
       - binary_sensor.0x00158d000237c71b
-      - group.phones
-      - sun.sun
 condition:
   condition: and
   conditions:
     - condition: state
-      entity_id: switch.bedroom_ac
+      entity_id: group.bedroom_windows
       state: 'off'
-    - condition: and
-      conditions:
-        - condition: state
-          entity_id: group.bedroom_windows
-          state: 'off'
-        - condition: or
-          conditions:
-            - condition: and
-              conditions:
-                - condition: state
-                  entity_id: group.living_room_windows
-                  state: 'off'
-                - condition: state
-                  entity_id: binary_sensor.0x00158d00022bd487
-                  state: 'off'
-            - condition: state
-              entity_id: binary_sensor.0x00158d000237c71b
-              state: 'off'
     - condition: or
       conditions:
-        # nobody home
         - condition: and
           conditions:
-            - condition: numeric_state
-              entity_id: sensor.0x00158d00022c7d5b_temperature
-              above: 85
             - condition: state
-              entity_id: group.phones
-              state: 'not_home'
-        # home and day
-        - condition: and
-          conditions:
-            - condition: numeric_state
-              entity_id: sensor.0x00158d00022c7d5b_temperature
-              above: 78
+              entity_id: group.living_room_windows
+              state: 'off'
             - condition: state
-              entity_id: group.phones
-              state: 'home'
-            - condition: time
-              after: '8:00'
-              before: '23:00'
-        # home and night
-        - condition: and
-          conditions:
-            - condition: numeric_state
-              entity_id: sensor.0x00158d00022c7d5b_temperature
-              above: 77
-            - condition: state
-              entity_id: group.phones
-              state: 'home'
-            - condition: time
-              after: '23:00'
-              before: '8:00'
+              entity_id: binary_sensor.0x00158d00022bd487
+              state: 'off'
+        - condition: state
+          entity_id: binary_sensor.0x00158d000237c71b
+          state: 'off'
 action:
-  service: switch.turn_on
+  service: climate.turn_on
   data:
-    entity_id: switch.bedroom_ac
+    entity_id: climate.bedroom_thermostat

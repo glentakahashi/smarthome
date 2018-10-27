@@ -1,5 +1,5 @@
 Phones:
-  - device_tracker.spectre
+  - device_tracker.spectrexr
   - device_tracker.mariesiphone
 Switch Lights:
   - switch.dining_room_light
