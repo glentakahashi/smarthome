@@ -50,15 +50,31 @@ automatic_light_on:
     - service: light.turn_on
       data_template:
         entity_id: "{{ entity_id }}"
-        brightness_pct: >
+        brightness: >
          {% if is_state('sun.sun', 'below_horizon') %}
            {% if now().hour > 6 and now().hour < 23 %}
-            30
+            77
            {% else %}
-            1
+            2
            {% endif %}
          {% else %}
-           100
+           255
+         {% endif %}
+incrementing_light:
+  alias: Incrementing light brightness
+  sequence:
+    - service: light.turn_on
+      data_template:
+        entity_id: "{{ entity_id }}"
+        brightness: >
+         {% if is_state(entity_id, 'off') %}
+           2
+         {% elif state_attr(state_attr(entity_id, 'entity_id')[0], 'brightness') == 2 %}
+           77
+         {% elif state_attr(state_attr(entity_id, 'entity_id')[0], 'brightness') == 77 %}
+           255
+         {% else %}
+           2
          {% endif %}
 three_tier_light:
   alias: Three Tier Xiaomi Light
@@ -66,14 +82,25 @@ three_tier_light:
     - service: light.turn_on
       data_template:
         entity_id: "{{ entity_id }}"
-        brightness_pct: >
+        brightness: >
          {% if click == 'double' %}
-           30
+           77 
          {% elif click == 'triple' %}
-           100
+           255
          {% elif click == 'quadruple' %}
-           1
+           2
          {% endif %}
+automatic_light_switch:
+  alias: Standard Xiaomi Two-button Switch Light Controls
+  sequence:
+    - service_template: >
+        {% if click == 'both'  %}
+          script.incrementing_light
+        {% else %}
+          script.automatic_light_toggle
+        {% endif %}
+      data_template:
+        entity_id: "{{ entity_id }}"
 automatic_light_button:
   alias: Standard Xiaomi Button Light Controls
   sequence:

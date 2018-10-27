@@ -1,10 +1,10 @@
-alias: Kitchen Light Switch
+alias: Office Light Switch
 initial_state: true
 trigger:
   platform: mqtt
-  topic: "zigbee2mqtt/0x00158d000213339e"
+  topic: "zigbee2mqtt/0x00158d00021334a8"
 action:
   service: script.automatic_light_switch
   data_template:
-    entity_id: group.kitchen_lights
+    entity_id: group.office_lights
     click: "{{ trigger.payload_json.click }}"

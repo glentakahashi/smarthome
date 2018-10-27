@@ -1,10 +1,10 @@
-alias: Bedroom Light Button
+alias: Bedroom Light Switch
 initial_state: true
 trigger:
   platform: mqtt
-  topic: "zigbee2mqtt/0x00158d0001e79023"
+  topic: "zigbee2mqtt/0x00158d000238a684"
 action:
-  service: script.automatic_light_button
+  service: script.automatic_light_switch
   data_template:
     entity_id: group.bedroom_lights
     click: "{{ trigger.payload_json.click }}"

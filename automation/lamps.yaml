@@ -1,5 +1,5 @@
 alias: Lamps
-initial_state: true
+initial_state: false
 trigger:
   platform: mqtt
   topic: "zigbee2mqtt/0x00158d00021334a8"
