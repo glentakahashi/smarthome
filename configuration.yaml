@@ -107,6 +107,7 @@ google_assistant:
   exposed_domains:
     - switch
     - light
+    - climate
   entity_config:
     script.bedtime:
       expose: true
