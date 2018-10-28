@@ -13,6 +13,9 @@ condition:
     - condition: state
       entity_id: group.bedroom_windows
       state: 'off'
+    - condition: state
+      entity_id: climate.bedroom_thermostat
+      state: 'off'
     - condition: or
       conditions:
         - condition: and

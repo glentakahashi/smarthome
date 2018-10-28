@@ -16,6 +16,9 @@ condition:
     - condition: state
       entity_id: binary_sensor.0x00158d00022bd487
       state: 'off'
+    - condition: state
+      entity_id: climate.living_room_thermostat
+      state: 'off'
     - condition: or
       conditions:
         - condition: state
