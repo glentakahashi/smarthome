@@ -69,12 +69,12 @@ incrementing_light:
         brightness: >
          {% if is_state(entity_id, 'off') %}
            2
-         {% elif state_attr(state_attr(entity_id, 'entity_id')[0], 'brightness') == 2 %}
-           77
-         {% elif state_attr(state_attr(entity_id, 'entity_id')[0], 'brightness') == 77 %}
-           255
-         {% else %}
+         {% elif state_attr(state_attr(entity_id, 'entity_id')[0], 'brightness') >= 255 %}
            2
+         {% elif state_attr(state_attr(entity_id, 'entity_id')[0], 'brightness') >= 77 %}
+           255
+         {% elif state_attr(state_attr(entity_id, 'entity_id')[0], 'brightness') >= 1 %}
+           77
          {% endif %}
 three_tier_light:
   alias: Three Tier Xiaomi Light
