@@ -51,15 +51,33 @@ automatic_light_on:
       data_template:
         entity_id: "{{ entity_id }}"
         brightness: >
-         {% if is_state('sun.sun', 'below_horizon') %}
-           {% if now().hour > 6 and now().hour < 23 %}
-            77
-           {% else %}
-            2
-           {% endif %}
-         {% else %}
-           255
-         {% endif %}
+          {% if is_state('sun.sun', 'below_horizon') %}
+            {% if now().hour > 6 and now().hour < 23 %}
+             77
+            {% else %}
+             2
+            {% endif %}
+          {% else %}
+            255
+          {% endif %}
+darken_light:
+  alias: Darken light if on
+  sequence:
+    - condition: template
+      value_template: >
+        {{ is_state(entity_id, 'on') }}
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - service: light.turn_on
+      data_template:
+        entity_id: "{{ entity_id }}"
+        brightness: >
+          {% if now().hour > 6 and now().hour < 23 %}
+           77
+          {% else %}
+           2
+          {% endif %}
 incrementing_light:
   alias: Incrementing light brightness
   sequence:
@@ -67,15 +85,15 @@ incrementing_light:
       data_template:
         entity_id: "{{ entity_id }}"
         brightness: >
-         {% if is_state(entity_id, 'off') %}
-           2
-         {% elif state_attr(state_attr(entity_id, 'entity_id')[0], 'brightness') >= 255 %}
-           2
-         {% elif state_attr(state_attr(entity_id, 'entity_id')[0], 'brightness') >= 77 %}
-           255
-         {% elif state_attr(state_attr(entity_id, 'entity_id')[0], 'brightness') >= 1 %}
-           77
-         {% endif %}
+          {% if is_state(entity_id, 'off') %}
+            2
+          {% elif state_attr(state_attr(entity_id, 'entity_id')[0], 'brightness') >= 255 %}
+            2
+          {% elif state_attr(state_attr(entity_id, 'entity_id')[0], 'brightness') >= 77 %}
+            255
+          {% elif state_attr(state_attr(entity_id, 'entity_id')[0], 'brightness') >= 1 %}
+            77
+          {% endif %}
 three_tier_light:
   alias: Three Tier Xiaomi Light
   sequence:
@@ -83,13 +101,13 @@ three_tier_light:
       data_template:
         entity_id: "{{ entity_id }}"
         brightness: >
-         {% if click == 'double' %}
-           77 
-         {% elif click == 'triple' %}
-           255
-         {% elif click == 'quadruple' %}
-           2
-         {% endif %}
+          {% if click == 'double' %}
+            77 
+          {% elif click == 'triple' %}
+            255
+          {% elif click == 'quadruple' %}
+            2
+          {% endif %}
 automatic_light_switch:
   alias: Standard Xiaomi Two-button Switch Light Controls
   sequence:
@@ -117,24 +135,24 @@ bedroom_button:
   alias: Generic Bedroom Button
   sequence:
     - service_template: >
-       {% if click == 'single' %}
-         switch.toggle
-       {% elif click == 'double' %}
-         script.automatic_light_toggle
-       {% elif click == 'triple' %}
-         script.tv_toggle
-       {% elif click == 'quadruple' %}
-         script.incrementing_light
-       {% endif %}
+        {% if click == 'single' %}
+          switch.toggle
+        {% elif click == 'double' %}
+          script.automatic_light_toggle
+        {% elif click == 'triple' %}
+          script.tv_toggle
+        {% elif click == 'quadruple' %}
+          script.incrementing_light
+        {% endif %}
       data_template:
         entity_id: >
-         {% if click == 'single' %}
-           {{ lamp_entity_id }}
-         {% elif click == 'double' %}
-           group.bedroom_lights
-         {% elif click == 'quadruple' %}
-           group.bedroom_lights
-         {% endif %}
+          {% if click == 'single' %}
+            {{ lamp_entity_id }}
+          {% elif click == 'double' %}
+            group.bedroom_lights
+          {% elif click == 'quadruple' %}
+            group.bedroom_lights
+          {% endif %}
 tv_toggle:
   alias: Bedroom TV Toggle
   sequence:

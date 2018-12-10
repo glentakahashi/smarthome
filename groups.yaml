@@ -4,8 +4,8 @@ Phones:
 Switch Lights:
   - switch.dining_room_light
   - switch.living_room_light
-  - switch.glen_lamp
-  - switch.marie_lamp
+  - switch.glens_lamp
+  - switch.maries_lamp
 ACs:
   - switch.living_room_ac
   - switch.bedroom_ac

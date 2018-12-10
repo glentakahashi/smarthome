@@ -1,0 +1,23 @@
+alias: Bright Lights
+initial_state: true
+trigger:
+  - platform: sun
+    event: sunset
+  - platform: time
+    at: '23:00:00'
+action:
+  - service: script.darken_light
+    data_template:
+      entity_id: group.bathroom_lights
+  - service: script.darken_light
+    data_template:
+      entity_id: group.bedroom_lights
+  - service: script.darken_light
+    data_template:
+      entity_id: group.kitchen_lights
+  - service: script.darken_light
+    data_template:
+      entity_id: group.office_lights
+  - service: script.darken_light
+    data_template:
+      entity_id: group.hall_lights
