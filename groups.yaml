@@ -2,30 +2,32 @@ Phones:
   - device_tracker.spectrexr
   - device_tracker.mariesiphone
 Switch Lights:
-  - switch.dining_room_light
-  - switch.living_room_light
-  - switch.glens_lamp
-  - switch.maries_lamp
+  - light.dining_room_light
+  - light.living_room_light
+  - light.glens_lamp
+  - light.maries_lamp
 ACs:
   - switch.living_room_ac
   - switch.bedroom_ac
 Kitchen Lights:
-  - light.0xb0ce18140316d859
-  - light.0xb0ce1814031bbfb6
-  - light.0xb0ce1814031c8686
-  - light.0xb0ce1814031cdeb3
+  - light.0xb0ce18140316d859_light
+  - light.0xb0ce1814031bbfb6_light
+  - light.0xb0ce1814031c8686_light
+  - light.0xb0ce1814031cdeb3_light
 Office Lights:
-  - light.0xb0ce1814030dedf3
-  - light.0xb0ce1814030ef600
+  - light.0xb0ce1814030dedf3_light
+  - light.0xb0ce1814030ef600_light
 Bathroom Lights:
-  - light.0xb0ce181403349cfc
-  - light.0xb0ce18140334b0ab
-  - light.0xb0ce181403364149
+  - light.0xb0ce181403349cfc_light
+  - light.0xb0ce18140334b0ab_light
+  - light.0xb0ce181403364149_light
 Bedroom Lights:
-  - light.0xb0ce1814030dad86
-  - light.0xb0ce1814030dcd16
+  - light.0xb0ce1814030dad86_light
+  - light.0xb0ce1814030dcd16_light
 Hall Lights:
-  - light.0xb0ce181403118a06
+  - light.0xb0ce181403118a06_light
+Closet Lights:
+  - light.0xb0ce181403360228_light
 Living Room Windows:
   - binary_sensor.0x00158d000236fa41
   - binary_sensor.0x00158d000237011b
@@ -35,8 +37,6 @@ Bedroom Windows:
 Wyze Cams:
   - switch.living_room_wyze
   - switch.bedroom_wyze
-Closet Lights:
-  - light.0xb0ce181403360228
 Closet Light Automations:
   - automation.closet_activity
   - automation.closet_activity_off

@@ -123,17 +123,25 @@ tts:
 google_assistant:
   project_id: !secret google_project_id
   api_key: !secret google_api_key
-  expose_by_default: false
   exposed_domains:
-    - switch
     - light
     - climate
   entity_config:
+    script.christmas_party:
+      expose: true
+    switch.computer:
+      expose: true
+    switch.christmas_lights:
+      expose: true
     script.bedtime:
       expose: true
-    script.bedroom_chromecast_on:
+    script.bedroom_tv_on:
       expose: true
-    script.bedroom_chromecast_off:
+    script.bedroom_tv_off:
+      expose: true
+    script.tv_on:
+      expose: true
+    script.tv_off:
       expose: true
     script.theater:
       expose: true
@@ -161,6 +169,23 @@ shell_command:
   shutdown_rubick: 'bash /home/homeassistant/shutdown-rubick.sh'
 
 switch: !include switches.yaml
+
+light:
+#  - platform: switch
+#    name: Christmas Lights
+#    entity_id: switch.christmas_lights
+  - platform: switch
+    name: Dining Room Light
+    entity_id: switch.dining_room_light
+  - platform: switch
+    name: Living Room Light
+    entity_id: switch.living_room_light
+  - platform: switch
+    name: Glen's Lamp
+    entity_id: switch.glens_lamp
+  - platform: switch
+    name: Marie's Lamp
+    entity_id: switch.maries_lamp
 
 climate:
   - platform: generic_thermostat
@@ -191,10 +216,12 @@ ifttt:
 # Example configuration.yaml entry
 device_tracker:
   - platform: asuswrt
-    host: 192.168.1.1
-    protocol: ssh
-    username: glen
-    password: !secret router_password
+ 
+asuswrt:
+  host: 192.168.1.1
+  protocol: ssh
+  username: glen
+  password: !secret router_password
 
 group: !include groups.yaml
 automation: !include_dir_list automation/

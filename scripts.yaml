@@ -1,10 +1,10 @@
-bedroom_chromecast_on:
+bedroom_tv_on:
   alias: Bedroom Tv On
   sequence:
     - service: switch.turn_on
       data:
         entity_id: switch.bedroom_tv_power, switch.bedroom_speakers
-bedroom_chromecast_off:
+bedroom_tv_off:
   alias: Bedroom Tv Off
   sequence:
     - service: media_player.turn_off
@@ -13,15 +13,42 @@ bedroom_chromecast_off:
     - service: switch.turn_off
       data:
         entity_id: switch.bedroom_tv_power, switch.bedroom_speakers
-all_off:
-  alias: All off
+tv_on:
+  alias: Tv On
+  sequence:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.samsung_tv
+    - delay:
+        seconds: 3
+    - service: switch.turn_on
+      data:
+        entity_id: switch.audioengine_power
+tv_off:
+  alias: Tv Off
   sequence:
     - service: switch.turn_off
       data:
-        entity_id: group.switch_lights
+        entity_id: switch.samsung_tv
+    - delay:
+        seconds: 3
+    - service: switch.turn_off
+      data:
+        entity_id: switch.audioengine_power
+all_off:
+  alias: All off
+  sequence:
     - service: light.turn_off
       data:
         entity_id: group.all_lights
+christmas_party:
+  alias: Christmas Party
+  sequence:
+    - service: media_extractor.play_media
+      data:
+        entity_id: media_player.home_group
+        media_content_id: 'https://www.youtube.com/watch?v=yXQViqx6GMY'
+        media_content_type: VIDEO
 theather:
   alias: Theater Mode
   sequence:
@@ -31,7 +58,7 @@ bedtime:
   sequence:
     - delay:
         minutes: 30
-    - service: script.bedroom_chromecast_off
+    - service: script.bedroom_tv_off
     - service: script.all_off
 automatic_light_toggle:
   alias: Automatic Light Toggle
@@ -72,6 +99,7 @@ darken_light:
     - service: light.turn_on
       data_template:
         entity_id: "{{ entity_id }}"
+        transition: 300
         brightness: >
           {% if now().hour > 6 and now().hour < 23 %}
            77
@@ -131,6 +159,24 @@ automatic_light_button:
       data_template:
         entity_id: "{{ entity_id }}"
         click: "{{ click }}"
+turn_off_ignore_brightness:
+  alias: Turn off ignoring brightness
+  sequence:
+    - service: light.turn_off
+      data_template:
+        entity_id: "{{ entity_id }}"
+dimmer_light:
+  alias: Dimmer light
+  sequence:
+    - service_template: >
+        {% if brightness == 0 %}
+          script.turn_off_ignore_brightness
+        {% else %}
+          light.turn_on
+        {% endif %}
+      data_template:
+        entity_id: "{{ entity_id }}"
+        brightness: "{{ brightness }}"
 bedroom_button:
   alias: Generic Bedroom Button
   sequence:
@@ -158,7 +204,7 @@ tv_toggle:
   sequence:
     - service_template: >
         {% if is_state('switch.bedroom_tv_power', 'on') %}
-          script.bedroom_chromecast_off
+          script.bedroom_tv_off
         {% else %}
-          script.bedroom_chromecast_on
+          script.bedroom_tv_on
         {% endif %}

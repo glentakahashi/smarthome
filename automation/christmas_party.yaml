@@ -1,0 +1,8 @@
+alias: Snowglobe
+initial_state: true
+trigger:
+  platform: state
+  entity_id: sensor.0x00158d000278eb90
+  to: 'shake'
+action:
+  - service: script.christmas_party
