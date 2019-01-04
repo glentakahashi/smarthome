@@ -40,11 +40,17 @@ frontend:
 config:
 
 logger:
-  default: debug
+  default: info
   logs:
     homeassistant.components.device_tracker.asuswrt: INFO
     roku: INFO
+    pychromecast: INFO
     homeassistant.components.websocket_api: INFO
+
+vacuum:
+  - platform: xiaomi_miio
+    host: 192.168.1.162
+    token: 6b5543335866534e586c6f4239304546
 
 http:
   # Secrets are defined in the file secrets.yaml
@@ -126,6 +132,7 @@ google_assistant:
   exposed_domains:
     - light
     - climate
+    - vacuum
   entity_config:
     script.christmas_party:
       expose: true

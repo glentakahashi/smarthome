@@ -1,0 +1,11 @@
+alias: Stop vacuum when we get home
+initial_state: true
+trigger:
+  platform: state
+  entity_id: group.phones
+  from: 'not_home'
+  to: 'home'
+action:
+  service: vacuum.stop
+  data:
+    entity_id: vacuum.xiaomi_vacuum_cleaner

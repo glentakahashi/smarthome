@@ -1,0 +1,13 @@
+alias: Run vacuum when we're gone
+initial_state: true
+trigger:
+  platform: state
+  entity_id: group.phones
+  from: 'home'
+  to: 'not_home'
+  for:
+    minutes: 15
+action:
+  service: vacuum.start
+  data:
+    entity_id: vacuum.xiaomi_vacuum_cleaner

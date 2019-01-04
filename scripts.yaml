@@ -169,7 +169,7 @@ dimmer_light:
   alias: Dimmer light
   sequence:
     - service_template: >
-        {% if brightness == 0 %}
+        {% if brightness|int < 2 %}
           script.turn_off_ignore_brightness
         {% else %}
           light.turn_on
