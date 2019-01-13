@@ -1,0 +1,73 @@
+version: '3'
+services:
+  homeassistant:
+    container_name: home-assistant
+    image: homeassistant/raspberrypi3-homeassistant
+    volumes:
+      - /home/pi/smarthome/homeassistant:/config
+      - /etc/localtime:/etc/localtime:ro
+      - letsencrypt:/config/letsencrypt:ro
+    restart: unless-stopped
+    ports:
+      - 8123:8123
+    depends_on:
+      - postgres
+      - mosquitto
+      - zigbee2mqtt
+    networks:
+      - db
+      - mqtt
+  mosquitto:
+    container_name: mosquitto
+    image: eclipse-mosquitto
+    networks:
+      - mqtt
+    volumes:
+      - /home/pi/smarthome/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - /home/pi/smarthome/mosquitto/passwd:/mosquitto/config/passwd
+  postgres:
+    container_name: postgres
+    image: postgres:9
+    volumes:
+      - /mnt/usb/postgresql/data:/var/lib/postgresql/data
+    networks:
+      - db
+  duckdns:
+    container_name: duckdns
+    image: linuxserver/duckdns
+    environment:
+      - TZ=America/New_York
+      - SUBDOMAINS=littlefoot
+      - TOKEN=28f2c3d2-a1a8-4fe8-9b66-21c443f556b8
+    restart: unless-stopped
+  letsencrypt:
+    container_name: letsencrypt
+    image: lsioarmhf/letsencrypt
+    environment:
+      - TZ=America/New_York
+      - URL=littlefoot.duckdns.org
+      - EMAIL=glen@glentaka.com
+      - VALIDATION=http
+    ports:
+      - 80:80
+    cap_add:
+      - NET_ADMIN 
+    volumes:
+      - letsencrypt:/config/etc/letsencrypt
+    restart: unless-stopped
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt:arm32v6
+    volumes:
+      - /home/pi/smarthome/zigbee2mqtt:/app/data
+    depends_on:
+      - mosquitto
+    networks:
+      - mqtt
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+volumes:
+  letsencrypt:
+networks:
+  db:
+  mqtt:

@@ -1,0 +1,121 @@
+homeassistant: true
+permit_join: true
+mqtt:
+  base_topic: zigbee2mqtt
+  server: 'mqtt://mosquitto'
+  user: homeassistant
+  password: ksxiikdHHetPonVzZA3XL7u8B2X
+serial:
+  port: /dev/ttyACM0
+devices:
+  '0x00158d00022cc96b':
+    friendly_name: '0x00158d00022cc96b'
+    retain: false
+  '0x00158d000245a9be':
+    friendly_name: '0x00158d000245a9be'
+    retain: false
+  '0xb0ce1814030ef600':
+    friendly_name: '0xb0ce1814030ef600'
+    retain: false
+  '0xb0ce1814031cdeb3':
+    friendly_name: '0xb0ce1814031cdeb3'
+    retain: false
+  '0xb0ce1814031bbfb6':
+    friendly_name: '0xb0ce1814031bbfb6'
+    retain: false
+  '0xb0ce18140316d859':
+    friendly_name: '0xb0ce18140316d859'
+    retain: false
+  '0xb0ce1814031c8686':
+    friendly_name: '0xb0ce1814031c8686'
+    retain: false
+  '0xb0ce18140334b0ab':
+    friendly_name: '0xb0ce18140334b0ab'
+    retain: false
+  '0xb0ce1814030dcd16':
+    friendly_name: '0xb0ce1814030dcd16'
+    retain: false
+  '0xb0ce1814030dad86':
+    friendly_name: '0xb0ce1814030dad86'
+    retain: false
+  '0xb0ce181403360228':
+    friendly_name: '0xb0ce181403360228'
+    retain: false
+  '0xb0ce1814030dedf3':
+    friendly_name: '0xb0ce1814030dedf3'
+    retain: false
+  '0x00158d00022c7d5b':
+    friendly_name: '0x00158d00022c7d5b'
+    retain: false
+  '0x00158d00022eff01':
+    friendly_name: '0x00158d00022eff01'
+    retain: false
+  '0x00158d00022bd487':
+    friendly_name: '0x00158d00022bd487'
+    retain: false
+  '0x00158d000236fa41':
+    friendly_name: '0x00158d000236fa41'
+    retain: false
+  '0x00158d000237011b':
+    friendly_name: '0x00158d000237011b'
+    retain: false
+  '0x00158d000232dc09':
+    friendly_name: '0x00158d000232dc09'
+    retain: false
+  '0x00158d0002329dac':
+    friendly_name: '0x00158d0002329dac'
+    retain: false
+  '0x00158d0002133460':
+    friendly_name: '0x00158d0002133460'
+    retain: false
+  '0x00158d000278eb90':
+    friendly_name: '0x00158d000278eb90'
+    retain: false
+  '0x00158d0001e88eae':
+    friendly_name: '0x00158d0001e88eae'
+    retain: false
+  '0x00158d000236a471':
+    friendly_name: '0x00158d000236a471'
+    retain: false
+  '0x00158d000237c71b':
+    friendly_name: '0x00158d000237c71b'
+    retain: false
+  '0xb0ce181403349cfc':
+    friendly_name: '0xb0ce181403349cfc'
+    retain: false
+  '0xb0ce181403364149':
+    friendly_name: '0xb0ce181403364149'
+    retain: false
+  '0x00158d00021334a8':
+    friendly_name: '0x00158d00021334a8'
+    retain: false
+  '0x00158d0001e89324':
+    friendly_name: '0x00158d0001e89324'
+    retain: false
+  '0x00158d0001e79023':
+    friendly_name: '0x00158d0001e79023'
+    retain: false
+  '0x00158d0001ef8506':
+    friendly_name: '0x00158d0001ef8506'
+    retain: false
+  '0x000b57fffe90228b':
+    friendly_name: '0x000b57fffe90228b'
+    retain: false
+  '0x000b57fffeb127f8':
+    friendly_name: '0x000b57fffeb127f8'
+    retain: false
+  '0x00158d000213339e':
+    friendly_name: '0x00158d000213339e'
+    retain: false
+  '0x00158d000238a684':
+    friendly_name: '0x00158d000238a684'
+    retain: false
+  '0x00158d000238a63d':
+    friendly_name: '0x00158d000238a63d'
+    retain: false
+  '0xb0ce181403118a06':
+    friendly_name: '0xb0ce181403118a06'
+    retain: false
+  '0xb0ce18140310d9f8':
+    friendly_name: '0xb0ce18140310d9f8'
+    retain: false
