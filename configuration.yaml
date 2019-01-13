@@ -14,7 +14,7 @@ homeassistant:
   customize: !include customize.yaml
 
 recorder:
-  db_url: postgresql://homeassistant@/homeassistant
+  db_url: postgresql://postgres@postgres/homeassistant
   purge_keep_days: 3
   include:
     domains:
@@ -57,8 +57,8 @@ http:
   # api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   base_url: littlefoot.duckdns.org:8123
-  ssl_certificate: /etc/letsencrypt/live/littlefoot.duckdns.org/fullchain.pem
-  ssl_key: /etc/letsencrypt/live/littlefoot.duckdns.org/privkey.pem
+  ssl_certificate: /config/letsencrypt/live/littlefoot.duckdns.org/fullchain.pem
+  ssl_key: /config/letsencrypt/live/littlefoot.duckdns.org/privkey.pem
   # use_x_forwarded_for: true
   trusted_networks:
     - 192.168.1.1
@@ -110,7 +110,7 @@ sensor:
 #  database_path: /home/homeassistant/.homeassistant/zigbee.db
 
 mqtt:
-  broker: localhost
+  broker: mosquitto
   username: homeassistant
   password: !secret mqtt_password
   discovery: true
