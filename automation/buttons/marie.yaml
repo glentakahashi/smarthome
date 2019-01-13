@@ -6,5 +6,5 @@ trigger:
 action:
   - service: script.bedroom_button
     data_template:
-      lamp_entity_id: switch.maries_lamp
+      lamp_entity_id: switch.marie_s_lamp
       click: "{{ trigger.payload_json.click }}"
