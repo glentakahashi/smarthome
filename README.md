@@ -1,0 +1,2 @@
+# smarthome
+home assistant configs
