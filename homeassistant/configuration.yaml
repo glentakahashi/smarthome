@@ -42,10 +42,11 @@ config:
 logger:
   default: info
   logs:
-    homeassistant.components.device_tracker.asuswrt: INFO
     roku: INFO
     pychromecast: INFO
     asyncssh: WARN
+    homeassistant.components.device_tracker.asuswrt: WARN
+    homeassistant.components.switch.command_line: WARN
     homeassistant.components.websocket_api: INFO
 
 vacuum:
