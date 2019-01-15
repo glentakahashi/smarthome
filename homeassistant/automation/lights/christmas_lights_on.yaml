@@ -1,9 +1,0 @@
-alias: Christmas Lights
-initial_state: true
-trigger:
-  platform: sun
-  event: sunset
-action:
-  - service: switch.turn_on
-    data:
-      entity_id: switch.christmas_lights

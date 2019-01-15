@@ -45,6 +45,7 @@ logger:
     homeassistant.components.device_tracker.asuswrt: INFO
     roku: INFO
     pychromecast: INFO
+    asyncssh: WARN
     homeassistant.components.websocket_api: INFO
 
 vacuum:

@@ -2,7 +2,7 @@ alias: Notify if front door opens and nobody home
 initial_state: true
 trigger:
   platform: state
-  entity_id: binary_sensor.0x00158d00022eff01
+  entity_id: binary_sensor.0x00158d00022eff01_contact
   from: 'off'
   to: 'on'
 condition:

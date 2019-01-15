@@ -4,9 +4,9 @@ trigger:
   - platform: state
     entity_id:
       - group.living_room_windows
-      - binary_sensor.0x00158d00022bd487
+      - binary_sensor.0x00158d00022bd487_contact
       - group.bedroom_windows
-      - binary_sensor.0x00158d000237c71b
+      - binary_sensor.0x00158d000237c71b_contact
 condition:
   condition: and
   conditions:
@@ -14,7 +14,7 @@ condition:
       entity_id: group.living_room_windows
       state: 'off'
     - condition: state
-      entity_id: binary_sensor.0x00158d00022bd487
+      entity_id: binary_sensor.0x00158d00022bd487_contact
       state: 'off'
     - condition: state
       entity_id: climate.living_room_thermostat
@@ -25,7 +25,7 @@ condition:
           entity_id: group.bedroom_windows
           state: 'off'
         - condition: state
-          entity_id: binary_sensor.0x00158d000237c71b
+          entity_id: binary_sensor.0x00158d000237c71b_contact
           state: 'off'
 action:
   service: climate.turn_on

@@ -1,9 +1,0 @@
-alias: Christmas Lights
-initial_state: true
-trigger:
-  platform: time
-  at: '00:30:00'
-action:
-  - service: switch.turn_off
-    data:
-      entity_id: switch.christmas_lights
