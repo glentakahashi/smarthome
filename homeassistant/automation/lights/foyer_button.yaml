@@ -1,11 +1,11 @@
 alias: Foyer Light Switch
 initial_state: true
 trigger:
-  platform: mqtt
-  topic: "zigbee2mqtt/0x00158d000213339e"
+  platform: state
+  entity_id: sensor.0x00158d000213339e_click
 condition:
   condition: template
-  value_template: '{{ trigger.payload_json.click == "both" }}'
+  value_template: "{{ trigger.to_state.state == 'both' }}"
 action:
   service: script.automatic_light_switch
   data:

@@ -1,10 +1,13 @@
 alias: Office Light Switch
 initial_state: true
 trigger:
-  platform: mqtt
-  topic: "zigbee2mqtt/0x00158d00021334a8"
+  platform: state
+  entity_id: sensor.0x00158d00021334a8_click
+condition:
+  condition: template
+  value_template: "{{ trigger.to_state.state is not none }}"
 action:
   service: script.automatic_light_switch
   data_template:
     entity_id: group.office_lights
-    click: "{{ trigger.payload_json.click }}"
+    click: "{{ trigger.to_state.state }}"
