@@ -8,16 +8,16 @@ trigger:
 action:
   - service: script.darken_light
     data_template:
-      entity_id: group.bathroom_lights
+      entity_id: light.bathroom_lights
   - service: script.darken_light
     data_template:
-      entity_id: group.bedroom_lights
+      entity_id: light.bedroom_lights
   - service: script.darken_light
     data_template:
-      entity_id: group.kitchen_lights
+      entity_id: light.kitchen_lights
   - service: script.darken_light
     data_template:
-      entity_id: group.office_lights
+      entity_id: light.office_lights
   - service: script.darken_light
     data_template:
       entity_id: group.hall_lights

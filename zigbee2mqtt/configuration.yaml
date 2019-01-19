@@ -7,6 +7,17 @@ mqtt:
   password: ksxiikdHHetPonVzZA3XL7u8B2X
 serial:
   port: /dev/ttyACM0
+groups:
+  '1':
+    friendly_name: kitchen_lights
+  '2':
+    friendly_name: office_lights
+  '3':
+    friendly_name: bathroom_lights
+  '4':
+    friendly_name: bedroom_lights
+experimental:
+  availability_timeout: 60 # Availability check interval
 devices:
   '0x00158d00022cc96b':
     friendly_name: '0x00158d00022cc96b'

@@ -57,7 +57,7 @@ services:
     restart: unless-stopped
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:arm32v6
+    image: koenkk/zigbee2mqtt:arm32v6-dev
     volumes:
       - /home/pi/smarthome/zigbee2mqtt:/app/data
     depends_on:

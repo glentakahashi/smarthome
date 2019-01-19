@@ -6,5 +6,5 @@ trigger:
 action:
   service: script.dimmer_light
   data_template:
-    entity_id: group.office_lights
+    entity_id: light.office_lights
     brightness: "{{ trigger.to_state.state }}"

@@ -9,5 +9,5 @@ condition:
 action:
   service: script.automatic_light_switch
   data_template:
-    entity_id: group.kitchen_lights
+    entity_id: light.kitchen_lights
     click: "{{ trigger.to_state.state }}"
