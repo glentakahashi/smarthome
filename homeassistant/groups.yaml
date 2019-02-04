@@ -4,8 +4,8 @@ Phones:
 Switch Lights:
   - light.dining_room_light
   - light.living_room_light
-  - light.glens_lamp
-  - light.maries_lamp
+  - light.glen_s_lamp
+  - light.marie_s_lamp
 ACs:
   - switch.living_room_ac
   - switch.bedroom_ac
@@ -27,33 +27,29 @@ Bedroom Lights:
 Hall Lights:
   - light.0xb0ce181403118a06_light
 Closet Lights:
-  - light.0xb0ce181403360228_light
+  - light.0xb0ce1814033937d3_light
 Living Room Windows:
-  - binary_sensor.0x00158d000236fa41
-  - binary_sensor.0x00158d000237011b
+  - binary_sensor.0x00158d000236fa41_contact
+  - binary_sensor.0x00158d000237011b_contact
 Bedroom Windows:
-  - binary_sensor.0x00158d000232dc09
-  - binary_sensor.0x00158d0002329dac
+  - binary_sensor.0x00158d000232dc09_contact
+  - binary_sensor.0x00158d0002329dac_contact
 Wyze Cams:
   - switch.living_room_wyze
   - switch.bedroom_wyze
 Closet Light Automations:
   - automation.closet_activity
   - automation.closet_activity_off
-Office Light Automations:
-  - automation.light_1
-  - automation.light_2
-  - automation.light_3
 Presence Automations:
   - automation.notify_if_front_door_opens_and_nobody_home
   - automation.turn_off_lights_when_nobody_is_home
   - automation.turn_off_wyze_when_someone_is_home
   - automation.turn_on_wyze_if_nobody_is_home
 AC Automations:
-  - automation.turn_off_bedroom_ac
-  - automation.turn_on_bedroom_ac
-  - automation.turn_off_living_room_ac
-  - automation.turn_on_living_room_ac
+  - automation.turn_off_bedroom_thermostat
+  - automation.turn_on_bedroom_thermostat
+  - automation.turn_off_living_room_thermostat
+  - automation.turn_on_living_room_thermostat
 Bedroom Media:
   - switch.bedroom_speakers
   - switch.bedroom_tv_power

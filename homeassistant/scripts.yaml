@@ -182,7 +182,7 @@ bedroom_button:
   sequence:
     - service_template: >
         {% if click == 'single' %}
-          switch.toggle
+          light.toggle
         {% elif click == 'double' %}
           script.automatic_light_toggle
         {% elif click == 'triple' %}
@@ -195,10 +195,49 @@ bedroom_button:
           {% if click == 'single' %}
             {{ lamp_entity_id }}
           {% elif click == 'double' %}
-            group.bedroom_lights
+            light.bedroom_lights
           {% elif click == 'quadruple' %}
-            group.bedroom_lights
+            light.bedroom_lights
           {% endif %}
+ikea_button:
+  alias: Ikea Button
+  sequence:
+    - service_template: >
+        {% if click == 'toggle' %}
+          script.automatic_light_toggle
+        {% elif click == 'brightness_up_click' %}
+          script.brightness_up
+        {% elif click == 'brightness_down_click' %}
+          script.brightness_down
+        {% endif %}
+      data_template:
+        entity_id: "{{ entity_id }}"
+brightness_down:
+  alias: Brightness Down
+  sequence:
+    service: light.turn_on
+    data_template:
+      entity_id: "{{ entity_id }}"
+      brightness: >
+       {% set n = state_attr(entity_id, 'brightness') - 51 %}
+       {% if n <= 2 %}
+         2
+       {% else %}
+         {{ n }}
+       {% endif %} 
+brightness_up:
+  alias: Brightness Up
+  sequence:
+    service: light.turn_on
+    data_template:
+      entity_id: "{{ entity_id }}"
+      brightness: >
+       {% set n = state_attr(entity_id, 'brightness') + 51 %}
+       {% if n > 255 %}
+         255
+       {% else %}
+         {{ n }}
+       {% endif %} 
 tv_toggle:
   alias: Bedroom TV Toggle
   sequence:

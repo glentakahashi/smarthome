@@ -1,14 +1,14 @@
-alias: Marie button
+alias: Ikea
 initial_state: true
 trigger:
   platform: state
-  entity_id: sensor.0x00158d0001ef8506_click
+  entity_id: sensor.0x000b57fffeb127f8_action
 condition:
   condition: template
   value_template: "{{ trigger.to_state.state is not none }}"
 action:
-  service: script.bedroom_button
+  service: script.ikea_button
   data_template:
-    lamp_entity_id: light.marie_s_lamp
+    entity_id: light.office_lights
     click: "{{ trigger.to_state.state }}"
 

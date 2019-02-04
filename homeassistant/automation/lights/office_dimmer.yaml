@@ -1,5 +1,5 @@
 alias: Office dimmer
-initial_state: true
+initial_state: false
 trigger:
   platform: state
   entity_id: sensor.0x000b57fffe90228b_brightness

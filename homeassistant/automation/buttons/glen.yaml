@@ -9,6 +9,6 @@ condition:
 action:
   service: script.bedroom_button
   data_template:
-    lamp_entity_id: switch.glen_s_lamp
+    lamp_entity_id: light.glen_s_lamp
     click: "{{ trigger.to_state.state }}"
 
