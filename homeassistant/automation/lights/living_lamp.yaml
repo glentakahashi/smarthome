@@ -1,11 +1,11 @@
 alias: Living Room Lamp
 initial_state: true
 trigger:
-  platform: state
-  entity_id: sensor.0x00158d0001e88eae_click
+  platform: mqtt
+  topic: "zigbee2mqtt/0x00158d0001e88eae"
 condition:
   condition: template
-  value_template: "{{ trigger.to_state.state == 'single' }}"
+  value_template: "{{ trigger.payload_json.click is not none }}"
 action:
   service: switch.toggle
   data:
