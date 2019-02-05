@@ -5,7 +5,7 @@ trigger:
   topic: "zigbee2mqtt/0x00158d00021334a8"
 condition:
   condition: template
-  value_template: "{{ trigger.payload_json.click is not none }}"
+  value_template: "{{ trigger.payload_json.click }}"
 action:
   service: script.automatic_light_switch
   data_template:
