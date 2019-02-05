@@ -41,7 +41,7 @@ devices:
   '0x000b57fffeb127f8':
     friendly_name: '0x000b57fffeb127f8'
     retain: false
-    coordinator_group: '0xe793'
+    coordinator_group: 0x5c90
   '0xb0ce1814030dad86':
     friendly_name: '0xb0ce1814030dad86'
     retain: false
@@ -51,11 +51,11 @@ devices:
   '0x000b57fffeabd5c1':
     friendly_name: '0x000b57fffeabd5c1'
     retain: false
-    coordinator_group: '0xdd75'
+    coordinator_group: 0xdd75
   '0x000b57fffeaa3920':
     friendly_name: '0x000b57fffeaa3920'
     retain: false
-    coordinator_group: '0x242b'
+    coordinator_group: 0x242b
   '0x00124b0014d9d4fa':
     friendly_name: '0x00124b0014d9d4fa'
     retain: false
@@ -127,4 +127,43 @@ devices:
     retain: false
   '0x00158d000236a471':
     friendly_name: '0x00158d000236a471'
+    retain: false
+  '0x00158d00022cc96b':
+    friendly_name: '0x00158d00022cc96b'
+    retain: false
+  '0x00158d0002133460':
+    friendly_name: '0x00158d0002133460'
+    retain: false
+  '0x00158d000245a9be':
+    friendly_name: '0x00158d000245a9be'
+    retain: false
+  '0x00158d00022c7d5b':
+    friendly_name: '0x00158d00022c7d5b'
+    retain: false
+  '0x00158d0001e89324':
+    friendly_name: '0x00158d0001e89324'
+    retain: false
+  '0x00158d00022eff01':
+    friendly_name: '0x00158d00022eff01'
+    retain: false
+  '0x00158d0001ef8506':
+    friendly_name: '0x00158d0001ef8506'
+    retain: false
+  '0x00158d00022bd487':
+    friendly_name: '0x00158d00022bd487'
+    retain: false
+  '0x00158d000238a684':
+    friendly_name: '0x00158d000238a684'
+    retain: false
+  '0x00158d000237011b':
+    friendly_name: '0x00158d000237011b'
+    retain: false
+  '0x00158d000236fa41':
+    friendly_name: '0x00158d000236fa41'
+    retain: false
+  '0x00158d000232dc09':
+    friendly_name: '0x00158d000232dc09'
+    retain: false
+  '0x00158d0002329dac':
+    friendly_name: '0x00158d0002329dac'
     retain: false
