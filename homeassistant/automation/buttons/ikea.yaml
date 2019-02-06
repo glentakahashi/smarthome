@@ -1,13 +1,14 @@
 alias: Ikea
 initial_state: true
 trigger:
-  platform: mqtt
-  topic: "zigbee2mqtt/0x000b57fffeb127f8"
+  platform: state
+  entity_id: sensor.0x000b57fffeb127f8_action
 condition:
   condition: template
-  value_template: "{{ true if trigger.payload_json.action else false }}"
+  value_template: "{{ trigger.to_state.state is not none }}"
 action:
   service: script.ikea_button
   data_template:
     entity_id: light.office_lights
-    click: "{{ trigger.payload_json.action }}"
+    click: "{{ trigger.to_state.state }}"
+
