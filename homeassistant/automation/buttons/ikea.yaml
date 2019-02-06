@@ -5,7 +5,7 @@ trigger:
   entity_id: sensor.0x000b57fffeb127f8_action
 condition:
   condition: template
-  value_template: "{{ trigger.to_state.state is not none }}"
+  value_template: "{{ trigger.to_state.state is not none and trigger.to_state.state != 'idle' }}"
 action:
   service: script.ikea_button
   data_template:
