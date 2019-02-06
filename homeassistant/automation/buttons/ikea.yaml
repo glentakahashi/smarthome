@@ -11,4 +11,3 @@ action:
   data_template:
     entity_id: light.office_lights
     click: "{{ trigger.to_state.state }}"
-
