@@ -1,0 +1,14 @@
+alias: Run vacuum when we're on vacation
+initial_state: false
+trigger:
+  platform: time
+  at: '01:00'
+condition:
+  - condition: time
+    weekday:
+      - sat
+      - mon
+action:
+  service: vacuum.start
+  data:
+    entity_id: vacuum.xiaomi_vacuum_cleaner

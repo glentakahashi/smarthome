@@ -2,26 +2,24 @@ version: '3'
 services:
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/raspberrypi3-homeassistant:0.87.0
+    image: homeassistant/raspberrypi3-homeassistant:0.90.1
     volumes:
       - /home/pi/smarthome/homeassistant:/config
       - /etc/localtime:/etc/localtime:ro
       - letsencrypt:/config/letsencrypt:ro
     restart: unless-stopped
-    ports:
-      - 8123:8123
     depends_on:
       - postgres
       - mosquitto
       - zigbee2mqtt
-    networks:
-      - db
-      - mqtt
+    network_mode: host
   mosquitto:
     container_name: mosquitto
     image: eclipse-mosquitto
     networks:
       - mqtt
+    ports:
+      - "1883:1883"
     volumes:
       - /home/pi/smarthome/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
       - /home/pi/smarthome/mosquitto/passwd:/mosquitto/config/passwd
@@ -30,8 +28,8 @@ services:
     image: postgres:9
     volumes:
       - /mnt/usb/postgresql/data:/var/lib/postgresql/data
-    networks:
-      - db
+    ports:
+      - "5432:5432"
   duckdns:
     container_name: duckdns
     image: linuxserver/duckdns
@@ -49,7 +47,7 @@ services:
       - EMAIL=glen@glentaka.com
       - VALIDATION=http
     ports:
-      - 80:80
+      - "80:80"
     cap_add:
       - NET_ADMIN 
     volumes:
@@ -58,16 +56,20 @@ services:
   zigbee2mqtt:
     container_name: zigbee2mqtt
     image: koenkk/zigbee2mqtt:arm32v6
+    #build:
+    #  context: ./zigbee2mqtt-repo
+    #  dockerfile: docker/Dockerfile.arm32v6
+    #  args:
+    #    COMMIT: 397772bfda765d8f757313f9b3cf54b6db34b910
+    networks:
+      - mqtt
     volumes:
       - /home/pi/smarthome/zigbee2mqtt:/app/data
     depends_on:
       - mosquitto
-    networks:
-      - mqtt
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
 volumes:
   letsencrypt:
 networks:
-  db:
   mqtt:

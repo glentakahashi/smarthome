@@ -6,4 +6,4 @@ trigger:
   from: 'home'
   to: 'not_home'
 action:
-  - service: script.all_off
+  - service: script.lights_out

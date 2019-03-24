@@ -53,6 +53,13 @@ AC Automations:
 Bedroom Media:
   - switch.bedroom_speakers
   - switch.bedroom_tv_power
+Routers:
+  - binary_sensor.0x00124b0014d9d4fa_router
+  - sensor.0x00158d000237dc1a_power
+  - sensor.0x00158d000237dc52_power
+  - sensor.0x00158d000237dd9b_power
+  - sensor.0x00158d000237ddb6_power
+  - sensor.0x00158d0002699ec6_power
 zigbee_group:
   view: false
   control: hidden

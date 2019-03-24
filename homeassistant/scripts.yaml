@@ -9,7 +9,7 @@ bedroom_tv_off:
   sequence:
     - service: media_player.turn_off
       data:
-        entity_id: media_player.chromecast0856
+        entity_id: media_player.ducky
     - service: switch.turn_off
       data:
         entity_id: switch.bedroom_tv_power, switch.bedroom_speakers
@@ -27,6 +27,9 @@ tv_on:
 tv_off:
   alias: Tv Off
   sequence:
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.star_leaf
     - service: switch.turn_off
       data:
         entity_id: switch.samsung_tv
@@ -35,31 +38,23 @@ tv_off:
     - service: switch.turn_off
       data:
         entity_id: switch.audioengine_power
-all_off:
-  alias: All off
+lights_out:
+  alias: Lights Out
   sequence:
     - service: light.turn_off
       data:
         entity_id: group.all_lights
-christmas_party:
-  alias: Christmas Party
-  sequence:
-    - service: media_extractor.play_media
-      data:
-        entity_id: media_player.home_group
-        media_content_id: 'https://www.youtube.com/watch?v=yXQViqx6GMY'
-        media_content_type: VIDEO
 theather:
   alias: Theater Mode
   sequence:
-    - service: script.all_off
+    - service: script.lights_out
 bedtime:
   alias: Bedtime
   sequence:
+    - service: script.lights_out
     - delay:
         minutes: 30
     - service: script.bedroom_tv_off
-    - service: script.all_off
 automatic_light_toggle:
   alias: Automatic Light Toggle
   sequence:

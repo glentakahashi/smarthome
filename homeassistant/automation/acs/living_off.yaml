@@ -1,5 +1,5 @@
 alias: Turn off Living Room Thermostat
-initial_state: true
+initial_state: false
 trigger:
   - platform: state
     entity_id:
