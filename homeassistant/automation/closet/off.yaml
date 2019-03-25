@@ -1,10 +1,12 @@
 alias: Closet activity off
 initial_state: true
 trigger:
-  platform: state
-  entity_id: binary_sensor.0x00158d000236a471_occupancy
-  to: 'off'
+  platform: mqtt
+  topic: "zigbee2mqtt/0x00158d000236a471"
+condition:
+  condition: template
+  value_template: "{{ trigger.payload_json.occupancy == False }}"
 action:
   service: light.turn_off
   data:
-    entity_id: group.closet_lights
+    entity_id: light.0xb0ce1814033937d3_light

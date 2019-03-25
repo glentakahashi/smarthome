@@ -1,11 +1,11 @@
-alias: Ikea
+alias: Office Ikea
 initial_state: true
 trigger:
   platform: mqtt
   topic: "zigbee2mqtt/0x000b57fffeb127f8"
 condition:
   condition: template
-  value_template: "{{ trigger.payload_json.action is not none }}"
+  value_template: "{{ trigger.payload_json.action is defined }}"
 action:
   service: script.ikea_button
   data_template:

@@ -1,0 +1,24 @@
+alias: Doorbell
+initial_state: true
+trigger:
+  platform: mqtt
+  topic: "zigbee2mqtt/0x00158d0001e89324"
+condition:
+  condition: template
+  value_template: "{{ trigger.payload_json.click is defined }}"
+action:
+- service: media_player.play_media
+  data:
+    entity_id: "media_player.home_group"
+    media_content_id: "https://littlefoot.duckdns.org:8123/local/doorbell.mp3"
+    media_content_type: "music"
+- service: notify.notify
+  data:
+    message: "doorbell"
+- delay:
+    seconds: 3
+- service: media_player.play_media
+  data:
+    entity_id: "media_player.home_group"
+    media_content_id: "https://littlefoot.duckdns.org:8123/local/doorbell.mp3"
+    media_content_type: "music"

@@ -55,12 +55,14 @@ services:
     restart: unless-stopped
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:arm32v6
-    #build:
-    #  context: ./zigbee2mqtt-repo
-    #  dockerfile: docker/Dockerfile.arm32v6
-    #  args:
-    #    COMMIT: 397772bfda765d8f757313f9b3cf54b6db34b910
+    image: koenkk/zigbee2mqtt:arm32v6-dev
+   #build:
+   #  context: ./zigbee2mqtt-repo
+   #  dockerfile: docker/Dockerfile.arm32v6
+   #  args:
+   #    COMMIT: 397772bfda765d8f757313f9b3cf54b6db34b910
+   #environment:
+   #  - DEBUG=*
     networks:
       - mqtt
     volumes:

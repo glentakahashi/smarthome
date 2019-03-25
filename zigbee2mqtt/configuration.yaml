@@ -9,7 +9,6 @@ mqtt:
 serial:
   port: /dev/ttyACM0
 advanced:
-  # report: true
   last_seen: ISO_8601
   network_key:
     - 46
@@ -38,8 +37,6 @@ groups:
     friendly_name: bathroom_lights
   '4':
     friendly_name: bedroom_lights
-  '5':
-    friendly_name: closet_lights
 devices:
   '0x000b57fffeb127f8':
     friendly_name: '0x000b57fffeb127f8'
@@ -49,9 +46,6 @@ devices:
     retain: false
   '0x000b57fffeabd5c1':
     friendly_name: '0x000b57fffeabd5c1'
-    retain: false
-  '0x000b57fffeaa3920':
-    friendly_name: '0x000b57fffeaa3920'
     retain: false
   '0x00124b0014d9d4fa':
     friendly_name: '0x00124b0014d9d4fa'
@@ -166,6 +160,9 @@ devices:
     retain: false
   '0xb0ce1814031c8686':
     friendly_name: '0xb0ce1814031c8686'
+    retain: false
+  '0x000b57fffeaa3920':
+    friendly_name: '0x000b57fffeaa3920'
     retain: false
   '0xb0ce1814033937d3':
     friendly_name: '0xb0ce1814033937d3'

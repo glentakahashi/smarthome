@@ -172,26 +172,24 @@ dimmer_light:
       data_template:
         entity_id: "{{ entity_id }}"
         brightness: "{{ brightness }}"
-bedroom_button:
-  alias: Generic Bedroom Button
+bedroom_ikea_button:
+  alias: Bedroom Ikea Button
   sequence:
     - service_template: >
-        {% if click == 'single' %}
-          light.toggle
-        {% elif click == 'double' %}
+        {% if click == 'toggle' or click.startswith('arrow_') %}
           script.automatic_light_toggle
-        {% elif click == 'triple' %}
-          script.tv_toggle
-        {% elif click == 'quadruple' %}
-          script.incrementing_light
+        {% elif click == 'brightness_up_click' %}
+          script.brightness_up
+        {% elif click == 'brightness_down_click' %}
+          script.brightness_down
         {% endif %}
       data_template:
         entity_id: >
-          {% if click == 'single' %}
-            {{ lamp_entity_id }}
-          {% elif click == 'double' %}
-            light.bedroom_lights
-          {% elif click == 'quadruple' %}
+          {% if click == 'arrow_right_click' %}
+            light.glen_s_lamp
+          {% elif click == 'arrow_left_click' %}
+            light.marie_s_lamp
+          {% elif click.startswith('brightness_') or click == 'toggle' %}
             light.bedroom_lights
           {% endif %}
 ikea_button:

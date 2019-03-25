@@ -40,6 +40,8 @@ frontend:
 # Enables configuration UI
 config:
 
+system_health:
+
 logger:
   default: info
   logs:
