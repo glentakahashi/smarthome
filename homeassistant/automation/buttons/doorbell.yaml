@@ -7,6 +7,10 @@ condition:
   condition: template
   value_template: "{{ trigger.payload_json.click is defined }}"
 action:
+- service: media_player.volume_set
+  data:
+    entity_id: "media_player.home_group"
+    volume_level: 0.5
 - service: media_player.play_media
   data:
     entity_id: "media_player.home_group"
@@ -16,7 +20,7 @@ action:
   data:
     message: "doorbell"
 - delay:
-    seconds: 3
+    seconds: 2
 - service: media_player.play_media
   data:
     entity_id: "media_player.home_group"

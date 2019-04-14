@@ -2,7 +2,7 @@ version: '3'
 services:
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/raspberrypi3-homeassistant:0.90.1
+    image: homeassistant/raspberrypi3-homeassistant
     volumes:
       - /home/pi/smarthome/homeassistant:/config
       - /etc/localtime:/etc/localtime:ro
@@ -40,7 +40,7 @@ services:
     restart: unless-stopped
   letsencrypt:
     container_name: letsencrypt
-    image: lsioarmhf/letsencrypt
+    image: linuxserver/letsencrypt
     environment:
       - TZ=America/New_York
       - URL=littlefoot.duckdns.org

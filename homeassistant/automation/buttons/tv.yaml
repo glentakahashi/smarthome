@@ -7,4 +7,11 @@ condition:
   condition: template
   value_template: "{{ trigger.payload_json.click is defined }}"
 action:
-  service: script.tv_toggle
+  service_template: >
+    {% set click = trigger.payload_json.click %}
+    {% if click == 'single' %}
+      script.tv_toggle
+    {% elif click == 'double' %}
+      script.bedtime
+    {% endif %}
+
