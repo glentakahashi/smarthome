@@ -1,2 +1,7 @@
 *
-!configuration.yaml
+!*/
+
+!.gitignore
+!docker-compose.yml
+!tail.sh
+!README.md

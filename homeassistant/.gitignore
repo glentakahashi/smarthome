@@ -1,7 +1,10 @@
-*
-!**/*.yaml
 !automation
-!automation/**
-!.gitignore
-secrets.yaml
-known_devices.yaml
+!configuration.yaml
+!customize.yaml
+!groups.yaml
+!scripts.yaml
+!switches.yaml
+!themes
+!ui-lovelace.yaml
+!www
+!zones.yaml
