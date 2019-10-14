@@ -163,7 +163,8 @@ mqtt:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 google_assistant:
   project_id: !secret google_project_id
@@ -306,10 +307,10 @@ device_tracker:
   - platform: asuswrt
  
 asuswrt:
-  host: 192.168.1.1
+  host: 192.168.50.1
   protocol: ssh
-  username: glen
-  ssh_key: asuswrt.key
+  username: littlefoot
+  password: !secret router_password
 
 group: !include groups.yaml
 automation: !include_dir_list automation/

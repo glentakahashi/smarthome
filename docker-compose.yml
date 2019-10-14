@@ -2,9 +2,9 @@ version: '3'
 services:
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/raspberrypi3-homeassistant
+    image: homeassistant/home-assistant:stable
     volumes:
-      - /home/pi/smarthome/homeassistant:/config
+      - /home/glen/smarthome/homeassistant:/config
       - /etc/localtime:/etc/localtime:ro
       - letsencrypt:/config/letsencrypt:ro
     restart: unless-stopped
@@ -16,18 +16,16 @@ services:
   mosquitto:
     container_name: mosquitto
     image: eclipse-mosquitto
-    networks:
-      - mqtt
     ports:
       - "1883:1883"
+    networks:
+      - mqtt
     volumes:
-      - /home/pi/smarthome/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
-      - /home/pi/smarthome/mosquitto/passwd:/mosquitto/config/passwd
+      - /home/glen/smarthome/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - /home/glen/smarthome/mosquitto/passwd:/mosquitto/config/passwd
   postgres:
     container_name: postgres
     image: postgres:9
-    volumes:
-      - /mnt/usb/postgresql/data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
   duckdns:
@@ -42,7 +40,7 @@ services:
     container_name: letsencrypt
     image: linuxserver/letsencrypt
     environment:
-      - TZ=America/New_York
+      - TZ=America/Los_Angeles
       - URL=littlefoot.duckdns.org
       - EMAIL=glen@glentaka.com
       - VALIDATION=http
@@ -51,22 +49,15 @@ services:
     cap_add:
       - NET_ADMIN 
     volumes:
-      - letsencrypt:/config/etc/letsencrypt
+      - letsencrypt:/etc/letsencrypt
     restart: unless-stopped
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:arm32v6-dev
-   #build:
-   #  context: ./zigbee2mqtt-repo
-   #  dockerfile: docker/Dockerfile.arm32v6
-   #  args:
-   #    COMMIT: 397772bfda765d8f757313f9b3cf54b6db34b910
-   #environment:
-   #  - DEBUG=*
+    image: koenkk/zigbee2mqtt
+    volumes:
+      - /home/glen/smarthome/zigbee2mqtt:/app/data
     networks:
       - mqtt
-    volumes:
-      - /home/pi/smarthome/zigbee2mqtt:/app/data
     depends_on:
       - mosquitto
     devices:
