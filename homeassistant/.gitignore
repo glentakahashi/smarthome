@@ -1,10 +1,10 @@
-!automation
+!automation/**
 !configuration.yaml
 !customize.yaml
 !groups.yaml
 !scripts.yaml
 !switches.yaml
-!themes
+!themes/**
 !ui-lovelace.yaml
-!www
+!www/**
 !zones.yaml
