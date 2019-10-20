@@ -62,6 +62,20 @@ services:
       - mosquitto
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
+  zigbee2mqttui:
+    container_name: z2mui
+    image: carldebilly/zigbee2mqttassistant
+    ports:
+      - "8800:80"
+    networks:
+      - mqtt
+    depends_on:
+      - mosquitto
+      - zigbee2mqtt
+    environment:
+      - Z2MA_SETTINGS__MQTTSERVER=mosquitto
+      - Z2MA_SETTINGS__MQTTUSERNAME=homeassistant
+      - Z2MA_SETTINGS__MQTTPASSWORD=ksxiikdHHetPonVzZA3XL7u8B2X
 volumes:
   letsencrypt:
 networks:
