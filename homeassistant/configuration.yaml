@@ -2,28 +2,19 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: 40.794624
-  longitude: -73.9657192
+  latitude: 37.379660
+  longitude: -122.053220
   # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 10
+  elevation: 35 
   # metric for Metric, imperial for Imperial
   unit_system: imperial
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: America/New_York
+  time_zone: America/Los_Angeles
   # Customization file
   customize: !include customize.yaml
 
 recorder:
   db_url: postgresql://postgres@localhost/homeassistant
-  purge_keep_days: 3
-  include:
-    domains:
-      - climate
-      - sensor
-      - binary_sensor
-      - light
-      - switch
-      - device_tracker
 
 zone: !include zones.yaml
 
@@ -54,7 +45,7 @@ logger:
 
 vacuum:
   - platform: xiaomi_miio
-    host: 192.168.1.162
+    host: 192.168.50.163
     token: !secret miio_token
 
 http:
@@ -66,7 +57,7 @@ http:
   ssl_key: /config/letsencrypt/live/littlefoot.duckdns.org/privkey.pem
   # use_x_forwarded_for: true
   trusted_networks:
-    - 192.168.1.1
+    - 192.168.50.1
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -169,69 +160,30 @@ tts:
 google_assistant:
   project_id: !secret google_project_id
   api_key: !secret google_api_key
-  exposed_domains:
-    - light
-    - climate
-    - vacuum
-  entity_config:
-    switch.computer:
-      expose: true
-    script.bedtime:
-      expose: true
-    script.bedroom_tv_on:
-      expose: true
-    script.bedroom_tv_off:
-      expose: true
-    script.tv_on:
-      expose: true
-    script.tv_off:
-      expose: true
-    script.theater:
-      expose: true
-    light.0xb0ce1814030dad86_light:
-      expose: false
-    light.0xb0ce1814030dcd16_light:
-      expose: false
-    light.0xb0ce1814030dedf3_light:
-      expose: false
-    light.0xb0ce1814030ef600_light:
-      expose: false
-    light.0xb0ce18140316d859_light:
-      expose: false
-    light.0xb0ce1814031bbfb6_light:
-      expose: false
-    light.0xb0ce1814031c8686_light:
-      expose: false
-    light.0xb0ce1814031cdeb3_light:
-      expose: false
-    light.0xb0ce181403349cfc_light:
-      expose: false
-    light.0xb0ce18140334b0ab_light:
-      expose: false
-    light.0xb0ce181403364149_light:
-      expose: false
+  exposed_domains: []
+  entity_config: {}
 
 # Cloud
 cloud:
 
-rest_command:
-  assistant_relay:
-    url: 'http://192.168.1.190:3000/assistant'
-    method: post
-    content_type: application/json
-    payload: >
-      {
-        "command": "{{ command }}",
-        "user": "glen"
-      }
+#rest_command:
+#  assistant_relay:
+#    url: 'http://192.168.50.190:3000/assistant'
+#    method: post
+#    content_type: application/json
+#    payload: >
+#      {
+#        "command": "{{ command }}",
+#        "user": "glen"
+#      }
 
 media_player:
 
 media_extractor:
 
 shell_command:
-  load_roku_app: 'curl -X POST http://192.168.1.67:8060/launch/{{ app }}'
-  shutdown_rubick: 'bash /home/homeassistant/shutdown-rubick.sh'
+  load_roku_app: 'curl -X POST http://192.168.50.67:8060/launch/{{ app }}'
+#  shutdown_rubick: 'bash /home/homeassistant/shutdown-rubick.sh'
 
 switch: !include switches.yaml
 
@@ -239,60 +191,60 @@ light:
 #  - platform: switch
 #    name: Christmas Lights
 #    entity_id: switch.christmas_lights
-  - platform: switch
-    name: Dining Room Light
-    entity_id: switch.dining_room_light
-  - platform: switch
-    name: Living Room Light
-    entity_id: switch.living_room_light
-  - platform: switch
-    name: Glen's Lamp
-    entity_id: switch.glen_s_lamp
-  - platform: switch
-    name: Marie's Lamp
-    entity_id: switch.marie_s_lamp
-  - platform: mqtt
-    schema: json
-    name: Bathroom Lights
-    command_topic: "zigbee2mqtt/bathroom_lights/set"
-    state_topic: "zigbee2mqtt/bathroom_lights/set"
-    brightness: true
-  - platform: mqtt
-    schema: json
-    name: Bedroom Lights
-    command_topic: "zigbee2mqtt/bedroom_lights/set"
-    state_topic: "zigbee2mqtt/bedroom_lights/set"
-    brightness: true
-  - platform: mqtt
-    schema: json
-    name: Kitchen Lights
-    command_topic: "zigbee2mqtt/kitchen_lights/set"
-    state_topic: "zigbee2mqtt/kitchen_lights/set"
-    brightness: true
-  - platform: mqtt
-    schema: json
-    name: Office Lights
-    command_topic: "zigbee2mqtt/office_lights/set"
-    state_topic: "zigbee2mqtt/office_lights/set"
-    brightness: true
+#  - platform: switch
+#    name: Dining Room Light
+#    entity_id: switch.dining_room_light
+#  - platform: switch
+#    name: Living Room Light
+#    entity_id: switch.living_room_light
+#  - platform: switch
+#    name: Glen's Lamp
+#    entity_id: switch.glen_s_lamp
+#  - platform: switch
+#    name: Marie's Lamp
+#    entity_id: switch.marie_s_lamp
+#  - platform: mqtt
+#    schema: json
+#    name: Bathroom Lights
+#    command_topic: "zigbee2mqtt/bathroom_lights/set"
+#    state_topic: "zigbee2mqtt/bathroom_lights/set"
+#    brightness: true
+#  - platform: mqtt
+#    schema: json
+#    name: Bedroom Lights
+#    command_topic: "zigbee2mqtt/bedroom_lights/set"
+#    state_topic: "zigbee2mqtt/bedroom_lights/set"
+#    brightness: true
+#  - platform: mqtt
+#    schema: json
+#    name: Kitchen Lights
+#    command_topic: "zigbee2mqtt/kitchen_lights/set"
+#    state_topic: "zigbee2mqtt/kitchen_lights/set"
+#    brightness: true
+#  - platform: mqtt
+#    schema: json
+#    name: Office Lights
+#    command_topic: "zigbee2mqtt/office_lights/set"
+#    state_topic: "zigbee2mqtt/office_lights/set"
+#    brightness: true
 
 climate:
-  - platform: generic_thermostat
-    name: Living Room Thermostat
-    heater: switch.living_room_ac
-    ac_mode: true
-    target_sensor: sensor.0x00158d00022cc96b_temperature
-    min_cycle_duration:
-      minutes: 10
-    away_temp: 85
-  - platform: generic_thermostat
-    name: Bedroom Thermostat
-    heater: switch.bedroom_ac
-    ac_mode: true
-    target_sensor: sensor.0x00158d00022c7d5b_temperature
-    min_cycle_duration:
-      minutes: 10
-    away_temp: 85
+#  - platform: generic_thermostat
+#    name: Living Room Thermostat
+#    heater: switch.living_room_ac
+#    ac_mode: true
+#    target_sensor: sensor.0x00158d00022cc96b_temperature
+#    min_cycle_duration:
+#      minutes: 10
+#    away_temp: 85
+#  - platform: generic_thermostat
+#    name: Bedroom Thermostat
+#    heater: switch.bedroom_ac
+#    ac_mode: true
+#    target_sensor: sensor.0x00158d00022c7d5b_temperature
+#    min_cycle_duration:
+#      minutes: 10
+#    away_temp: 85
 
 ifttt:
   key: !secret ifttt

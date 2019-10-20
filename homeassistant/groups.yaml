@@ -1,7 +1,6 @@
 Phones:
-  - device_tracker.spectrexr
-  - device_tracker.mariesiphone
-  - device_tracker.barbaraisiphone
+  - device_tracker.spectre
+  - device_tracker.maries_iphone
 Switch Lights:
   - light.dining_room_light
   - light.living_room_light
