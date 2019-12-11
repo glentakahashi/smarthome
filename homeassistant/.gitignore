@@ -8,3 +8,5 @@
 !ui-lovelace.yaml
 !www/**
 !zones.yaml
+
+*.swp

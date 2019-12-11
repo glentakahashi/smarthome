@@ -1,0 +1,31 @@
+alias: Notify if garage door opens and nobody home
+initial_state: true
+trigger:
+  platform: state
+  entity_id: binary_sensor.0x00158d00022eff01_contact
+  from: 'off'
+  to: 'on'
+condition:
+  condition: state
+  entity_id: group.phones
+  state: 'not_home'
+action:
+  - service: notify.notify
+    data:
+      message: 'Garage door opened'
+  - delay:
+      minutes: 5
+  - condition: state
+    entity_id: binary_sensor.0x00158d00022eff01_contact
+    state: 'on'
+  - service: notify.notify
+    data:
+      message: 'Garage door still open!'
+  - delay:
+      minutes: 15
+  - condition: state
+    entity_id: binary_sensor.0x00158d00022eff01_contact
+    state: 'on'
+  - service: notify.notify
+    data:
+      message: 'Garage door still open!'

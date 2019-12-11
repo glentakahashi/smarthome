@@ -1,11 +1,11 @@
-bedroom_tv_on:
-  alias: Bedroom Tv On
+office_tv_on:
+  alias: Office Tv On
   sequence:
     - service: switch.turn_on
       data:
         entity_id: switch.bedroom_tv_power, switch.bedroom_speakers
-bedroom_tv_off:
-  alias: Bedroom Tv Off
+office_tv_off:
+  alias: Office Tv Off
   sequence:
     - service: media_player.turn_off
       data:
@@ -48,13 +48,6 @@ theather:
   alias: Theater Mode
   sequence:
     - service: script.lights_out
-bedtime:
-  alias: Bedtime
-  sequence:
-    - service: script.lights_out
-    - delay:
-        minutes: 30
-    - service: script.bedroom_tv_off
 automatic_light_toggle:
   alias: Automatic Light Toggle
   sequence:
@@ -231,12 +224,3 @@ brightness_up:
        {% else %}
          {{ n }}
        {% endif %} 
-tv_toggle:
-  alias: Bedroom TV Toggle
-  sequence:
-    - service_template: >
-        {% if is_state('switch.bedroom_tv_power', 'on') %}
-          script.bedroom_tv_off
-        {% else %}
-          script.bedroom_tv_on
-        {% endif %}

@@ -16,8 +16,9 @@ services:
   mosquitto:
     container_name: mosquitto
     image: eclipse-mosquitto
+    restart: unless-stopped
     ports:
-      - "1883:1883"
+      - "1893:1883"
     networks:
       - mqtt
     volumes:
@@ -26,6 +27,7 @@ services:
   postgres:
     container_name: postgres
     image: postgres:9
+    restart: unless-stopped
     ports:
       - "5432:5432"
   duckdns:
@@ -62,6 +64,7 @@ services:
       - mosquitto
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
+    restart: unless-stopped
   zigbee2mqttui:
     container_name: z2mui
     image: carldebilly/zigbee2mqttassistant
@@ -76,6 +79,7 @@ services:
       - Z2MA_SETTINGS__MQTTSERVER=mosquitto
       - Z2MA_SETTINGS__MQTTUSERNAME=homeassistant
       - Z2MA_SETTINGS__MQTTPASSWORD=ksxiikdHHetPonVzZA3XL7u8B2X
+    restart: unless-stopped
 volumes:
   letsencrypt:
 networks:
